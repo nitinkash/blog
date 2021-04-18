@@ -1,1 +1,1 @@
-Sitemap: https://nitinkash.github.io/fastai-deeplearning/sitemap.xml
+Sitemap: https://nitinkash.github.io/blog/sitemap.xml
