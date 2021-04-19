@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | Nitin Kashyap</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Yet another Data Science Blog" />
+<meta property="og:description" content="Yet another Data Science Blog" />
+<link rel="canonical" href="https://nitinkash.github.io/blog/2021/04/18/MNIST-Nitin-2.html" />
+<meta property="og:url" content="https://nitinkash.github.io/blog/2021/04/18/MNIST-Nitin-2.html" />
+<meta property="og:site_name" content="Nitin Kashyap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Yet another Data Science Blog","url":"https://nitinkash.github.io/blog/2021/04/18/MNIST-Nitin-2.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://nitinkash.github.io/blog/2021/04/18/MNIST-Nitin-2.html"},"headline":"Title","dateModified":"2021-04-18T00:00:00-05:00","datePublished":"2021-04-18T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nitinkash.github.io/blog/feed.xml" title="Nitin Kashyap" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Nitin Kashyap</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-04-18T00:00:00-05:00" itemprop="datePublished">
+        Apr 18, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/nitinkash/fastai-deeplearning/tree/master/_notebooks/2021-04-18-MNIST-Nitin-2.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/nitinkash/fastai-deeplearning/master?filepath=_notebooks%2F2021-04-18-MNIST-Nitin-2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/nitinkash/fastai-deeplearning/blob/master/_notebooks/2021-04-18-MNIST-Nitin-2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-04-18-MNIST-Nitin-2.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As recommeneded by Jeremy, I am writing this blog to deepen my understanding of Deep Learning. Here I am hoping to expand on the material presented in the fastai course and create a full blown MNIST classifier using fastai.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">fastbook</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Quite pissed that I ran into some issues in the import statement itself. After some googling in the fastai forums, I found that apparently the fastai version (v2) needs to be explicitly defined. Somehow the notebooks used in the course circumvents this. Anyway glad to have found the answer within a few minutes of googling. If you have this error just follow this: <a href="https://forums.fast.ai/t/modulenotfounderror-no-module-named-fastai-vision-all-on-kaggle-notebook/77008/13?u=nitinkashyap">https://forums.fast.ai/t/modulenotfounderror-no-module-named-fastai-vision-all-on-kaggle-notebook/77008/13?u=nitinkashyap</a></p>
+<p>EDIT: Wrote the above part and then Colab on Google chrome crashed for the umpteenth time. I moved to Brave Browser and the original code works perfectly. Guess there was some issue with Google Chrome.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">fastbook</span>
+<span class="n">fastbook</span><span class="o">.</span><span class="n">setup_book</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">fastbook</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I absolutely love how fastai has managed to improve the readability of python and provide such small elegant functions that used to be a pain for me to create on python jupyter notebooks before. Usually had about three or four lines of code that just set the input and output paths before. Using the untar_data to basically download the data from fastai's AWS S3 on to the working directory and decompress this. this function returns the path of the extracted files. SO SO Elegant!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">MNIST</span><span class="p">)</span>
+<span class="n">Path</span><span class="o">.</span><span class="n">BASE_PATH</span> <span class="o">=</span> <span class="n">path</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another nifty little thing fastai has provided is to access the working directory directly on jupyter books using path.ls()</p>
+
+<pre><code>path.ls()</code></pre>
+<p>I remember toggling back and forth between the terminal and the jupyter notebook while working before. It's the little things like this that let you focus on the deep learning part of the process.</p>
+<p>Big thanks to the fastai team for including so many such features.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">path</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#6) [Path(&#39;valid&#39;),Path(&#39;test&#39;),Path(&#39;labels.csv&#39;),Path(&#39;process.txt&#39;),Path(&#39;train&#39;),Path(&#39;models&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The MNIST dataset follows a common layout for machine learning datasets: separate folders for the training set and the validation set (and/or test set). Let's see what's inside the training set:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#20) [Path(&#39;test/6517.png&#39;),Path(&#39;test/6335.png&#39;),Path(&#39;test/4654.png&#39;),Path(&#39;test/3515.png&#39;),Path(&#39;test/2642.png&#39;),Path(&#39;test/617.png&#39;),Path(&#39;test/3878.png&#39;),Path(&#39;test/6736.png&#39;),Path(&#39;test/2032.png&#39;),Path(&#39;test/3848.png&#39;)...]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#2) [Path(&#39;train/3&#39;),Path(&#39;train/7&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are separate folders for inages of each of the 10 digits. Doing this part by brute force, I am sure fastai has some cool functions to make this better. Will explore and update here:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ones</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">twos</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">threes</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">fours</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">fives</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">sixes</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;6&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">sevens</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;7&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">eights</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">nines</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;9&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">zeros</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-9-c4945584a276&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>ones <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>path<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;train&#39;</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;1&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>ls<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>sorted<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> twos <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>path<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;train&#39;</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;2&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>ls<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>sorted<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> threes <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>path<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;train&#39;</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;3&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>ls<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>sorted<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> fours <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>path<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;train&#39;</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;4&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>ls<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>sorted<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> fives <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>path<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;train&#39;</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">&#39;5&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>ls<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>sorted<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/fastcore/xtras.py</span> in <span class="ansi-cyan-fg">ls</span><span class="ansi-blue-fg">(self, n_max, file_type, file_exts)</span>
+<span class="ansi-green-intense-fg ansi-bold">    223</span>     res <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>o <span class="ansi-green-fg">for</span> o <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">.</span>iterdir<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> has_extns <span class="ansi-green-fg">or</span> o<span class="ansi-blue-fg">.</span>suffix <span class="ansi-green-fg">in</span> extns<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    224</span>     <span class="ansi-green-fg">if</span> n_max <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> res <span class="ansi-blue-fg">=</span> itertools<span class="ansi-blue-fg">.</span>islice<span class="ansi-blue-fg">(</span>res<span class="ansi-blue-fg">,</span> n_max<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 225</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> L<span class="ansi-blue-fg">(</span>res<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    226</span> 
+<span class="ansi-green-intense-fg ansi-bold">    227</span> <span class="ansi-red-fg"># Cell</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(cls, x, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     95</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>cls<span class="ansi-blue-fg">,</span> x<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> args <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> kwargs <span class="ansi-green-fg">and</span> x <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> isinstance<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span>cls<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> <span class="ansi-green-fg">return</span> x
+<span class="ansi-green-fg">---&gt; 97</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> super<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__call__<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     98</span> 
+<span class="ansi-green-intense-fg ansi-bold">     99</span> <span class="ansi-red-fg"># Cell</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/fastcore/foundation.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, items, use_list, match, *rest)</span>
+<span class="ansi-green-intense-fg ansi-bold">    103</span>     <span class="ansi-green-fg">def</span> __init__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> items<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>rest<span class="ansi-blue-fg">,</span> use_list<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> match<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    104</span>         <span class="ansi-green-fg">if</span> <span class="ansi-blue-fg">(</span>use_list <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> <span class="ansi-green-fg">not</span> is_array<span class="ansi-blue-fg">(</span>items<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 105</span><span class="ansi-red-fg">             </span>items <span class="ansi-blue-fg">=</span> listify<span class="ansi-blue-fg">(</span>items<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>rest<span class="ansi-blue-fg">,</span> use_list<span class="ansi-blue-fg">=</span>use_list<span class="ansi-blue-fg">,</span> match<span class="ansi-blue-fg">=</span>match<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    106</span>         super<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">(</span>items<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    107</span> 
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/fastcore/basics.py</span> in <span class="ansi-cyan-fg">listify</span><span class="ansi-blue-fg">(o, use_list, match, *rest)</span>
+<span class="ansi-green-intense-fg ansi-bold">     54</span>     <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">,</span> list<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> res <span class="ansi-blue-fg">=</span> o
+<span class="ansi-green-intense-fg ansi-bold">     55</span>     <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">,</span> str<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> is_array<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> res <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>o<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">---&gt; 56</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">elif</span> is_iter<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span> res <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     57</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span> res <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>o<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">     58</span>     <span class="ansi-green-fg">if</span> match <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/fastcore/xtras.py</span> in <span class="ansi-cyan-fg">&lt;genexpr&gt;</span><span class="ansi-blue-fg">(.0)</span>
+<span class="ansi-green-intense-fg ansi-bold">    221</span>     <span class="ansi-green-fg">if</span> file_type<span class="ansi-blue-fg">:</span> extns <span class="ansi-blue-fg">+=</span> L<span class="ansi-blue-fg">(</span>k <span class="ansi-green-fg">for</span> k<span class="ansi-blue-fg">,</span>v <span class="ansi-green-fg">in</span> mimetypes<span class="ansi-blue-fg">.</span>types_map<span class="ansi-blue-fg">.</span>items<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> v<span class="ansi-blue-fg">.</span>startswith<span class="ansi-blue-fg">(</span>file_type<span class="ansi-blue-fg">+</span><span class="ansi-blue-fg">&#39;/&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    222</span>     has_extns <span class="ansi-blue-fg">=</span> len<span class="ansi-blue-fg">(</span>extns<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">==</span><span class="ansi-cyan-fg">0</span>
+<span class="ansi-green-fg">--&gt; 223</span><span class="ansi-red-fg">     </span>res <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>o <span class="ansi-green-fg">for</span> o <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">.</span>iterdir<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> has_extns <span class="ansi-green-fg">or</span> o<span class="ansi-blue-fg">.</span>suffix <span class="ansi-green-fg">in</span> extns<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    224</span>     <span class="ansi-green-fg">if</span> n_max <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> res <span class="ansi-blue-fg">=</span> itertools<span class="ansi-blue-fg">.</span>islice<span class="ansi-blue-fg">(</span>res<span class="ansi-blue-fg">,</span> n_max<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    225</span>     <span class="ansi-green-fg">return</span> L<span class="ansi-blue-fg">(</span>res<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/usr/lib/python3.7/pathlib.py</span> in <span class="ansi-cyan-fg">iterdir</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1105</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_closed<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1106</span>             self<span class="ansi-blue-fg">.</span>_raise_closed<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1107</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">for</span> name <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">.</span>_accessor<span class="ansi-blue-fg">.</span>listdir<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1108</span>             <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">in</span> <span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">&#39;.&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;..&#39;</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1109</span>                 <span class="ansi-red-fg"># Yielding a path object for these makes little sense</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/root/.fastai/data/mnist_tiny/train/1&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">im5</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fives</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">im5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>Image<span class="o">??</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here the <code>Image</code> class from the <em>Python Imaging Library</em> (PIL) is used. This is a Python package for opening, manipulating, and viewing images.</p>
+<p>Lets convert these Images to a Tensor so that we can create our model</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zero_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">zeros</span><span class="p">]</span>
+<span class="n">one_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">ones</span><span class="p">]</span>
+<span class="n">two_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">twos</span><span class="p">]</span>
+<span class="n">three_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">threes</span><span class="p">]</span>
+<span class="n">four_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">fours</span><span class="p">]</span>
+<span class="n">five_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">fives</span><span class="p">]</span>
+<span class="n">six_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">sixes</span><span class="p">]</span>
+<span class="n">seven_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">sevens</span><span class="p">]</span>
+<span class="n">eight_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">eights</span><span class="p">]</span>
+<span class="n">nine_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">nines</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Building-the-Baseline-Model:-KNN">Building the Baseline Model: KNN<a class="anchor-link" href="#Building-the-Baseline-Model:-KNN"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the things emphasized in the fastai course is the need to first create a baseline model. Having an accuracy of over 90% means nothing if a simple arithmetic model has an accuracy of 95%. I have also created many fancy machine learning models only to find that using a simpler model performed far better. A model is useless if it fails to beat a simple benchmark. While it's tempting to rush in and start writing in some fancy code, it might be a good idea to create a simple baseline model to assess the quality of the model's accuracy. Here is the description of a Baseline model from the fastai course:</p>
+<blockquote><p>jargon:Baseline: A simple model which you are confident should perform reasonably well. It should be very simple to implement, and very easy to test, so that you can then test each of your improved ideas, and make sure they are always better than your baseline. Without starting with a sensible baseline, it is very difficult to know whether your super-fancy models are actually any good. One good approach to creating a baseline is doing what we have done here: think of a simple, easy-to-implement model. Another good approach is to search around to find other people that have solved similar problems to yours, and download and run their code on your dataset. Ideally, try both of these!
+As the MNSIT I am trying to do is a bit more complex than the sample MNSIT example in lesson 4 of the course. I am going to try and build a simple KNN Classifier and see how well this performs and hopefully should be able to get a better result using Deep Learning. This will also give me an opportunity of using Tensors to build a KNN</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">euc_dist</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This script will need a way to create X and Y datasets</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flat_zeros</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">zero_tensors</span><span class="p">]</span>
+<span class="n">flat_ones</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">one_tensors</span><span class="p">]</span>
+<span class="n">flat_twos</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">two_tensors</span><span class="p">]</span>
+<span class="n">flat_threes</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">three_tensors</span><span class="p">]</span>
+<span class="n">flat_fours</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">four_tensors</span><span class="p">]</span>
+<span class="n">flat_fives</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">five_tensors</span><span class="p">]</span>
+<span class="n">flat_sixes</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">six_tensors</span><span class="p">]</span>
+<span class="n">flat_sevens</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">seven_tensors</span><span class="p">]</span>
+<span class="n">flat_eights</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">eight_tensors</span><span class="p">]</span>
+<span class="n">flat_nines</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">nine_tensors</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_zeros</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_ones</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_twos</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_threes</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_fours</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_fives</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_sixes</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_sevens</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_eights</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_nines</span><span class="p">)])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_y</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">zeros</span><span class="p">)</span><span class="o">+</span> 
+                 <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">ones</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">twos</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">threes</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">fours</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">fives</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sixes</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sevens</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">eights</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">nines</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Doing the same for the testing data</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ones_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">twos_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">threes_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">fours_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">fives_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">sixes_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;6&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">sevens_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;7&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">eights_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">nines_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;9&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">zeros_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;testing&#39;</span><span class="o">/</span><span class="s1">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+
+
+<span class="n">zero_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">zeros_test</span><span class="p">]</span>
+<span class="n">one_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">ones_test</span><span class="p">]</span>
+<span class="n">two_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">twos_test</span><span class="p">]</span>
+<span class="n">three_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">threes_test</span><span class="p">]</span>
+<span class="n">four_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">fours_test</span><span class="p">]</span>
+<span class="n">five_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">fives_test</span><span class="p">]</span>
+<span class="n">six_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">sixes_test</span><span class="p">]</span>
+<span class="n">seven_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">sevens_test</span><span class="p">]</span>
+<span class="n">eight_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">eights_test</span><span class="p">]</span>
+<span class="n">nine_tensors_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">nines_test</span><span class="p">]</span>
+
+<span class="n">flat_zeros_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">zero_tensors_test</span><span class="p">]</span>
+<span class="n">flat_ones_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">one_tensors_test</span><span class="p">]</span>
+<span class="n">flat_twos_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">two_tensors_test</span><span class="p">]</span>
+<span class="n">flat_threes_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">three_tensors_test</span><span class="p">]</span>
+<span class="n">flat_fours_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">four_tensors_test</span><span class="p">]</span>
+<span class="n">flat_fives_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">five_tensors_test</span><span class="p">]</span>
+<span class="n">flat_sixes_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">six_tensors_test</span><span class="p">]</span>
+<span class="n">flat_sevens_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">seven_tensors_test</span><span class="p">]</span>
+<span class="n">flat_eights_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">eight_tensors_test</span><span class="p">]</span>
+<span class="n">flat_nines_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">nine_tensors_test</span><span class="p">]</span>
+
+<span class="n">test_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_zeros_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_ones_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_twos_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_threes_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_fours_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_fives_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_sixes_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_sevens_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_eights_test</span><span class="p">),</span> 
+                     <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">flat_nines_test</span><span class="p">)])</span>
+
+<span class="n">test_y</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">zeros_test</span><span class="p">)</span><span class="o">+</span> 
+                 <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">ones_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">twos_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">threes_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">fours_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">fives_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sixes_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sevens_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">eights_test</span><span class="p">)</span><span class="o">+</span>
+                 <span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">nines_test</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Running the model to check the results. Got a first hand understanding of how slow the computation is because of the loops</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">KNN</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="o">=</span><span class="mi">3</span>
+  
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span> <span class="o">=</span> <span class="n">x_train</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span>
+  
+    <span class="k">def</span> <span class="nf">old_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)):</span>
+            <span class="c1">#dist = torch.tensor([euc_dist(X_test[i], x_t) for x_t in self.X_train])</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x_t</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">])</span>
+            <span class="n">dist_sorted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">dist</span><span class="p">)[:</span><span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="p">]</span>
+            <span class="n">neigh_count</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">dist_sorted</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="ow">in</span> <span class="n">neigh_count</span><span class="p">:</span>
+                    <span class="n">neigh_count</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">neigh_count</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+
+            <span class="n">sorted_neigh_count</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">neigh_count</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sorted_neigh_count</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> 
+        <span class="k">return</span> <span class="n">predictions</span>       
+
+        <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)):</span>
+            <span class="c1">#dist = torch.tensor([euc_dist(X_test[i], x_t) for x_t in self.X_train])</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x_t</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">])</span>
+            <span class="n">dist_sorted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">dist</span><span class="p">)[:</span><span class="bp">self</span><span class="o">.</span><span class="n">K</span><span class="p">]</span>
+            <span class="n">neigh_count</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">dist_sorted</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="ow">in</span> <span class="n">neigh_count</span><span class="p">:</span>
+                    <span class="n">neigh_count</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">neigh_count</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+
+            <span class="n">sorted_neigh_count</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">neigh_count</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sorted_neigh_count</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> 
+        <span class="k">return</span> <span class="n">predictions</span>       
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">KNN</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_y</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">three_tensors</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">three_tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">three_tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">three_tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/blog/2021/04/18/MNIST-Nitin-2.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Yet another Data Science Blog</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/nitinkash" title="nitinkash"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/1nitinkashyap" title="1nitinkashyap"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/nikashyap" title="nikashyap"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
