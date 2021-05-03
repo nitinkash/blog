@@ -11,7 +11,7 @@ title: Q01 Introduction
 
    - Lots of math T / F: **False**, a lot of libraries have been created to take care of the complex math parts and allow us to focus on training models
    - Lots of data T / F: **False**, a lot of great results have been seen with small amounts of data
-   - Lots of expensive computers T / F: **False**, there are a lot of free and cheap options avaliable to create and deploy deep learning models
+   - Lots of expensive computers T / F: **False**, there are a lot of free and cheap options available to create and deploy deep learning models
    - A PhD T / F: **False**
    
 1. Name five areas where deep learning is now the best in the world.
@@ -75,9 +75,9 @@ title: Q01 Introduction
 1. What is an "architecture"?
     - Architecture refers to the template of the model that we’re trying to fit; i.e., the actual mathematical function that we’re passing the input data and parameters to
 1. What is segmentation?
-	- Creating a model that can identify distinct objects (vehicles, pedestrians etc) in a picture is called segmentation.
+	- Creating a model that can identify distinct objects (vehicles, pedestrians etc.) in a picture is called segmentation.
 1. What is `y_range` used for? When do we need it?
-    - `y_range` is a paremeter that defines the range of values the prediction(target) can take.
+    - `y_range` is a parameter that defines the range of values the prediction(target) can take.
 1. What are "hyperparameters"?
 	- Hyperparameters are basically parameters about parameters. They affect how fast and accurate the deep learning model performs
 1. What's the best way to avoid failures when using AI in an organization?
