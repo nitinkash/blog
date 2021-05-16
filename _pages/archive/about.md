@@ -2,6 +2,7 @@
 layout: page
 title: About Me
 permalink: /about/
+hide: true
 ---
 
 My name is Nitin Kashyap and I am primarily a consultant who helps people and companies solve problems using data science and analytics. These could include anything from automating tasks and wrangling data, creating forecasting models to improve decision making and helping identify issues to help improve customer satisfaction. I have experience in creating forecasting models, creating automated scripts for data collection, web scraping, and Social Media automation.

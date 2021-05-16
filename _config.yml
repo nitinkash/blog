@@ -7,10 +7,10 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: Nitin Kashyap
-description: Yet another Data Science Blog
+description: My Data Science Blog
 github_username: nitinkash
 # you can comment the below line out if your repo name is not different than your baseurl
-github_repo: "fastai-deeplearning"
+github_repo: "blog"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
@@ -84,7 +84,7 @@ html_escape:
 future: true
 theme: minima
 plugins:
-  - jekyll-feed
+#  - jekyll-feed
   - jekyll-gist
   - jekyll-octicons
   - jekyll-toc
@@ -118,9 +118,9 @@ kramdown:
   syntax_highlighter: rouge
 
 # to limit size of xml as it can grow quite large.
-feed:
-  posts_limit: 5 #default posts_limit: 10
-  excerpt_only: true
+#feed:
+#  posts_limit: 5 #default posts_limit: 10
+#  excerpt_only: true
   
 exclude:
   - settings.ini

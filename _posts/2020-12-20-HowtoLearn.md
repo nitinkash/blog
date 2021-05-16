@@ -3,7 +3,7 @@ toc: false
 layout: post
 categories: [general]
 title: Why?
-hide: true
+hide: false
 ---
 
 Why? Why start a blog now?
