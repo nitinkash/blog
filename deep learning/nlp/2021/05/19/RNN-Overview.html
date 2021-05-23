@@ -4,17 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Tags | Nitin Kashyap</title>
+<title>Recurrent Neural Networks | Nitin Kashyap</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Tags" />
+<meta property="og:title" content="Recurrent Neural Networks" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="My Data Science Blog" />
-<meta property="og:description" content="My Data Science Blog" />
-<link rel="canonical" href="https://nitinkash.github.io/blog/categories/" />
-<meta property="og:url" content="https://nitinkash.github.io/blog/categories/" />
+<meta name="description" content="Traditional Neural networks found it very difficult to execute tasks in Natural Language Processing (NLP). To understand a sentence it is important to both understand each word, it’s relationship with the previous and successive words and also the context in which the word is being used. Recurrent Neural Networks adopt a structure that helps solve this issue and is the main focus of this article." />
+<meta property="og:description" content="Traditional Neural networks found it very difficult to execute tasks in Natural Language Processing (NLP). To understand a sentence it is important to both understand each word, it’s relationship with the previous and successive words and also the context in which the word is being used. Recurrent Neural Networks adopt a structure that helps solve this issue and is the main focus of this article." />
+<link rel="canonical" href="https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html" />
+<meta property="og:url" content="https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html" />
 <meta property="og:site_name" content="Nitin Kashyap" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-19T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"My Data Science Blog","url":"https://nitinkash.github.io/blog/categories/","@type":"WebPage","headline":"Tags","@context":"https://schema.org"}</script>
+{"description":"Traditional Neural networks found it very difficult to execute tasks in Natural Language Processing (NLP). To understand a sentence it is important to both understand each word, it’s relationship with the previous and successive words and also the context in which the word is being used. Recurrent Neural Networks adopt a structure that helps solve this issue and is the main focus of this article.","url":"https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html"},"headline":"Recurrent Neural Networks","dateModified":"2021-05-19T00:00:00-05:00","datePublished":"2021-05-19T00:00:00-05:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nitinkash.github.io/blog/feed.xml" title="Nitin Kashyap" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -66,126 +68,43 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Recurrent Neural Networks</h1><p class="page-description">Traditional Neural networks found it very difficult to execute tasks in Natural Language Processing (NLP). To understand a sentence it is important to both understand each word, it's relationship with the previous and successive words and also the context in which the word is being used. Recurrent Neural Networks adopt a structure that helps solve this issue and is the main focus of this article.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-05-19T00:00:00-05:00" itemprop="datePublished">
+        May 19, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#Deep Learning">Deep Learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#NLP">NLP</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A recurrent neural network (RNN) is a type of Neural Network that allows previous outputs to be used as inputs while using hidden states. It is called a Recurrent Network because it repeatedly takes an input, uses it to modify a hidden layer and then provides an output which is then fed back to the hidden layer along with the next input. The hidden layer acts as “memory” that keeps track of the previous inputs by how the weights in the layer were modified by the said input. Consider an example of a RNN working on predicting the next word in a sentence. The first word is passed into a hidden layer, the output of this hidden layer along with the next input is then passed on to the next hidden layer and this process continues till all the inputs are passed on to the final output layer which predicts the final word. In this way, the RNN has an “understanding” of each word in the network and can make a reasonable prediction of the final word.</p>
+
+<h1 id="todo-add-image-of-rnn-for-predicting-the-next-word-here">TODO: Add image of RNN for predicting the next word here::</h1>
+
+<p>The structure used here is a many-to-one type of RNN. Many other RNN architectures have been developed to accomplish other tasks like music generation, sentiment analysis and machine translation.</p>
 
 
-<h2>Contents</h2>
-
-  
-  
-  
-
-  <ul>
-  
-    <li><a href="#Deep Learning">Deep Learning</a></li>
-  
-    <li><a href="#fastpages">fastpages</a></li>
-  
-    <li><a href="#general">general</a></li>
-  
-    <li><a href="#Image Classification">Image Classification</a></li>
-  
-    <li><a href="#jupyter">jupyter</a></li>
-  
-    <li><a href="#markdown">markdown</a></li>
-  
-    <li><a href="#MNIST">MNIST</a></li>
-  
-    <li><a href="#NLP">NLP</a></li>
-  
-    <li><a href="#questionnaire">questionnaire</a></li>
-  
-    <li><a href="#SGD">SGD</a></li>
-  
-  </ul>
-
-  
-      <h3 id ="Deep Learning"><i class="fas fa-tags category-tags-icon"></i></i> Deep Learning</h3>
-      <a name="Deep Learning"></a>
-      
-        
-      
-  
-      <h3 id ="fastpages"><i class="fas fa-tags category-tags-icon"></i></i> fastpages</h3>
-      <a name="fastpages"></a>
-      
-        <article class="archive-item">
-          <p class="post-meta post-meta-title"><a class="page-meta" href="/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html">Building a Handwritting digit Classifier using PyTorch and fastai</a>  • May 22, 2021</p>
-        </article>
-        
-      
-  
-      <h3 id ="general"><i class="fas fa-tags category-tags-icon"></i></i> general</h3>
-      <a name="general"></a>
-      
-        
-      
-  
-      <h3 id ="Image Classification"><i class="fas fa-tags category-tags-icon"></i></i> Image Classification</h3>
-      <a name="Image Classification"></a>
-      
-        <article class="archive-item">
-          <p class="post-meta post-meta-title"><a class="page-meta" href="/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html">Building a Handwritting digit Classifier using PyTorch and fastai</a>  • May 22, 2021</p>
-        </article>
-        
-      
-  
-      <h3 id ="jupyter"><i class="fas fa-tags category-tags-icon"></i></i> jupyter</h3>
-      <a name="jupyter"></a>
-      
-        <article class="archive-item">
-          <p class="post-meta post-meta-title"><a class="page-meta" href="/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html">Building a Handwritting digit Classifier using PyTorch and fastai</a>  • May 22, 2021</p>
-        </article>
-        
-      
-  
-      <h3 id ="markdown"><i class="fas fa-tags category-tags-icon"></i></i> markdown</h3>
-      <a name="markdown"></a>
-      
-        
-      
-        
-      
-        
-      
-  
-      <h3 id ="MNIST"><i class="fas fa-tags category-tags-icon"></i></i> MNIST</h3>
-      <a name="MNIST"></a>
-      
-        <article class="archive-item">
-          <p class="post-meta post-meta-title"><a class="page-meta" href="/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html">Building a Handwritting digit Classifier using PyTorch and fastai</a>  • May 22, 2021</p>
-        </article>
-        
-      
-  
-      <h3 id ="NLP"><i class="fas fa-tags category-tags-icon"></i></i> NLP</h3>
-      <a name="NLP"></a>
-      
-        
-      
-  
-      <h3 id ="questionnaire"><i class="fas fa-tags category-tags-icon"></i></i> questionnaire</h3>
-      <a name="questionnaire"></a>
-      
-        
-      
-        
-      
-  
-      <h3 id ="SGD"><i class="fas fa-tags category-tags-icon"></i></i> SGD</h3>
-      <a name="SGD"></a>
-      
-        <article class="archive-item">
-          <p class="post-meta post-meta-title"><a class="page-meta" href="/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html">Building a Handwritting digit Classifier using PyTorch and fastai</a>  • May 22, 2021</p>
-        </article>
-        
-      
-  
-
-
-
-
-</div>
+  </div><a class="u-url" href="/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html" hidden></a>
+</article>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/blog/"></data>
