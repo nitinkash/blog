@@ -4,20 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Building a Handwritting digit Classifier using PyTorch and fastai | Nitin Kashyap</title>
+<title>Building a Handwritten Digit Classifier | Nitin Kashyap</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Building a Handwritting digit Classifier using PyTorch and fastai" />
+<meta property="og:title" content="Building a Handwritten Digit Classifier" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Attempt at building from scratch a classifier that is capable of reading my sloppy numbers" />
-<meta property="og:description" content="Attempt at building from scratch a classifier that is capable of reading my sloppy numbers" />
-<link rel="canonical" href="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html" />
-<meta property="og:url" content="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html" />
+<meta name="description" content="An attempt to build a model that identifies a set of numbers hand written by me" />
+<meta property="og:description" content="An attempt to build a model that identifies a set of numbers hand written by me" />
+<link rel="canonical" href="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin.html" />
+<meta property="og:url" content="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin.html" />
 <meta property="og:site_name" content="Nitin Kashyap" />
 <meta property="og:image" content="https://nitinkash.github.io/blog/images/some_folder/your_image.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-05-22T00:00:00-05:00" />
+<meta property="article:published_time" content="2021-04-18T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Attempt at building from scratch a classifier that is capable of reading my sloppy numbers","url":"https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html"},"headline":"Building a Handwritting digit Classifier using PyTorch and fastai","dateModified":"2021-05-22T00:00:00-05:00","datePublished":"2021-05-22T00:00:00-05:00","image":"https://nitinkash.github.io/blog/images/some_folder/your_image.png","@context":"https://schema.org"}</script>
+{"description":"An attempt to build a model that identifies a set of numbers hand written by me","url":"https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin.html"},"headline":"Building a Handwritten Digit Classifier","dateModified":"2021-04-18T00:00:00-05:00","datePublished":"2021-04-18T00:00:00-05:00","image":"https://nitinkash.github.io/blog/images/some_folder/your_image.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nitinkash.github.io/blog/feed.xml" title="Nitin Kashyap" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
@@ -88,8 +88,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Building a Handwritting digit Classifier using PyTorch and fastai</h1><p class="page-description">Attempt at building from scratch a classifier that is capable of reading my sloppy numbers</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-05-22T00:00:00-05:00" itemprop="datePublished">
-        May 22, 2021
+    <h1 class="post-title p-name" itemprop="name headline">Building a Handwritten Digit Classifier</h1><p class="page-description">An attempt to build a model that identifies a set of numbers hand written by me</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-04-18T00:00:00-05:00" itemprop="datePublished">
+        Apr 18, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -124,19 +124,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/nitinkash/blog/tree/master/_notebooks/2021_04_18_MNIST_Nitin-final.ipynb" role="button" target="_blank">
+    <a href="https://github.com/nitinkash/blog/tree/master/_notebooks/2021-04-18-MNIST-Nitin.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/nitinkash/blog/master?filepath=_notebooks%2F2021_04_18_MNIST_Nitin-final.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/nitinkash/blog/master?filepath=_notebooks%2F2021-04-18-MNIST-Nitin.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/nitinkash/blog/blob/master/_notebooks/2021_04_18_MNIST_Nitin-final.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/nitinkash/blog/blob/master/_notebooks/2021-04-18-MNIST-Nitin.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -159,7 +159,7 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021_04_18_MNIST_Nitin-final.ipynb
+# file to edit: _notebooks/2021-04-18-MNIST-Nitin.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -170,7 +170,7 @@ window.onload = wrap_img;
 <h3 id="The-Objective:">
 <a class="anchor" href="#The-Objective:" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Objective:<a class="anchor-link" href="#The-Objective:"> </a>
 </h3>
-<p>In one of the <a href="https://course.fast.ai/videos/?lesson=4">lessons</a> in the fastAi MOOC, we built a hand written digit classifier from scratch. We had used the MNIST dataset that contains 70,000 28x28 images of handwritten digits. In this post, I am attempting to expand on that and build a Handwritten digit recognizer to read in a 10 digit phone number with my sloppy handwriting usign the same MNIST dataset for training. I am seeing this as a sort of "Hello World" problem as I get into the topics covered in the first few parts of the course.</p>
+<p>In one of the <a href="https://course.fast.ai/videos/?lesson=4">lessons</a> in the fastAi MOOC, we built a hand written digit classifier from scratch. We had used the MNIST dataset that contains 70,000 28x28 images of handwritten digits. In this post, I am attempting to expand on that and build a Handwritten digit recognizer to read in a 10 digit phone number with my sloppy handwriting using the same MNIST dataset for training. I am seeing this as a sort of "Hello World" problem as I get into the topics covered in the first few parts of the course.</p>
 <p>Lets start by importing the libraries we need:</p>
 
 </div>
@@ -198,7 +198,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I had some issues importing the libraries using Colab on Google Chrome. If you run into the same issues, you might need to explcitly specify the library as fastai-V2. See this <a href="https://forums.fast.ai/t/modulenotfounderror-no-module-named-fastai-vision-all-on-kaggle-notebook/77008/13">link</a></p>
+<p>I had some issues importing the libraries using Colab on Google Chrome. If you run into the same issues, you might need to explicitly specify the library as fastai-V2. See this <a href="https://forums.fast.ai/t/modulenotfounderror-no-module-named-fastai-vision-all-on-kaggle-notebook/77008/13">link</a></p>
 
 </div>
 </div>
@@ -247,7 +247,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another nifty little thing fastai has provided is to access the working directory directly on jupyter books using <code>path.ls()</code> This basically lets you run the <code>ls</code> command in the Jupyter notebook itself and not have to switch back and forth with the terminal.</p>
+<p>Another nifty little thing fastai has provided is to access the working directory directly on Jupyter books using <code>path.ls()</code> This basically lets you run the <code>ls</code> command in the Jupyter notebook itself and not have to switch back and forth with the terminal.</p>
 
 </div>
 </div>
@@ -362,7 +362,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As expected, there are separate folders for inages of each of the 10 digits. Usually, without having any pre-defined functions to read in the data, we would have to read in the files using something like</p>
+<p>As expected, there are separate folders for images of each of the 10 digits. Usually, without having any pre-defined functions to read in the data, we would have to read in the files using something like</p>
 
 <pre><code>ones = (path/'training'/'1').ls().sorted()
 twos = (path/'training'/'2').ls().sorted()
@@ -374,7 +374,7 @@ sevens = (path/'training'/'7').ls().sorted()
 eights = (path/'training'/'8').ls().sorted()
 nines = (path/'training'/'9').ls().sorted()
 zeros = (path/'training'/'0').ls().sorted()</code></pre>
-<p>This is cumbersome and might lead to some inadverent errors while writing the lines of code for each category. Fortunately, fastai also has an inbuilt ImageDataLoaders class that helps us easily import the required files and also automatically assign the labels.</p>
+<p>This is cumbersome and might lead to some inadvertent errors while writing the lines of code for each category. Fortunately, fastai also has an inbuilt ImageDataLoaders class that helps us easily import the required files and also automatically assign the labels.</p>
 
 </div>
 </div>
@@ -1177,7 +1177,7 @@ Hit Rate: 30 %
 <ul>
 <li>Improve the quality of the input images </li>
 <li>Use the right learning rates using the learning rate finder <code>lr_find</code> based on Leslie Smith's <a href="https://arxiv.org/pdf/1803.09820.pdf">paper</a>.</li>
-<li>Use a pretrained model and just change the weights of the last few layers</li>
+<li>Use a pre-trained model and just change the weights of the last few layers</li>
 <li>Use a Deeper Architecture with more layers.</li>
 </ul>
 
@@ -1190,7 +1190,7 @@ Hit Rate: 30 %
 <h3 id="Augmenting-the-Images">
 <a class="anchor" href="#Augmenting-the-Images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Augmenting the Images<a class="anchor-link" href="#Augmenting-the-Images"> </a>
 </h3>
-<p>One way of dealing with the problem of centering is to fix each of my test images so that the numbers are in the center of the image. The other easier approach is to train the model by augmenting the training images using <code>RandomResizedCrop</code></p>
+<p>One way of dealing with the problem of centring is to fix each of my test images so that the numbers are in the centre of the image. The other easier approach is to train the model by augmenting the training images using <code>RandomResizedCrop</code></p>
 
 </div>
 </div>
@@ -1220,7 +1220,7 @@ Hit Rate: 30 %
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's take a look at these images to make sure the code is working as expected. As we can see, some of these images are not at the center of the frame and this will help the model understand that the numbers don't need to be in the center of the frame to be classified as a particular number.</p>
+<p>Let's take a look at these images to make sure the code is working as expected. As we can see, some of these images are not at the centre of the frame and this will help the model understand that the numbers don't need to be in the centre of the frame to be classified as a particular number.</p>
 
 </div>
 </div>
@@ -1448,11 +1448,11 @@ Hit Rate: 10 %
 <a class="anchor" href="#Using-the-weights-from-a-pre-trained-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the weights from a pre-trained model<a class="anchor-link" href="#Using-the-weights-from-a-pre-trained-model"> </a>
 </h3>
 <p>Up until now we had used the <code>fit_one_cycle</code> to train the model. This method trains the model by calculating the weights of every layer of the neural network for the defined number of epochs. However, we can make use the weights of an already trained model to avoid re-learning the information based on just our dataset. For example, if we already have a model trained on a lot of diverse set of images we might be better off using that rather than fitting a model based on just our digits dataset.</p>
-<p>One of the cool things fastai, is that it allows us to do this seamlessly. To do this, we select an already trained model like <code>resnet18</code> and use the in-built <code>freeze</code> method to retains the weights of the pretrained model for all but the last layer. Then by randomizing the weights of the last layer and then train the model using our MNIST dataset for one epoch. This will help us avoid reinventing the wheel and converge faster to the right solution.</p>
+<p>One of the cool things fastai, is that it allows us to do this seamlessly. To do this, we select an already trained model like <code>resnet18</code> and use the in-built <code>freeze</code> method to retains the weights of the pre-trained model for all but the last layer. Then by randomizing the weights of the last layer and then train the model using our MNIST dataset for one epoch. This will help us avoid reinventing the wheel and converge faster to the right solution.</p>
 <h4 id="The-fine_tune-method">
 <a class="anchor" href="#The-fine_tune-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>The <code>fine_tune</code> method<a class="anchor-link" href="#The-fine_tune-method"> </a>
 </h4>
-<p><code>fine_tune</code> basically solves this problem for us with just one line of code. So <code>fine_tune</code> is a combination of <code>fit_one_cycle</code> and <code>freeze</code> using a discriminative learning rate that works quite well in most image datasets as we are leveraging on the pretrained model. After calling <code>unfreeze</code> we use a lower learning rate to recalculate the weights of all the layers to avoid moving too far away from the current solution.</p>
+<p><code>fine_tune</code> basically solves this problem for us with just one line of code. So <code>fine_tune</code> is a combination of <code>fit_one_cycle</code> and <code>freeze</code> using a discriminative learning rate that works quite well in most image datasets as we are leveraging on the pre-trained model. After calling <code>unfreeze</code> we use a lower learning rate to recalculate the weights of all the layers to avoid moving too far away from the current solution.</p>
 
 <pre><code>def fine_tune(self:Learner, epochs, base_lr=2e-3, freeze_epochs=1, lr_mult=100,
               pct_start=0.3, div=5.0, **kwargs):
@@ -1695,7 +1695,7 @@ Hit Rate: 70 %
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the weights from the pretrained model really helped improve the predictions in a short period of training time. Seems like the model has an issue predicting the 7s and the 0 at the end. This is probably caused by the fact that I tend to add a dash to the 7s and most of the training set does not.</p>
+<p>Using the weights from the pre-trained model really helped improve the predictions in a short period of training time. Seems like the model has an issue predicting the 7s and the 0 at the end. This is probably caused by the fact that I tend to add a dash to the 7s and most of the training set does not.</p>
 
 </div>
 </div>
@@ -1706,7 +1706,7 @@ Hit Rate: 70 %
 <h3 id="Using-a-Deeper-Network-Architecture">
 <a class="anchor" href="#Using-a-Deeper-Network-Architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a Deeper Network Architecture<a class="anchor-link" href="#Using-a-Deeper-Network-Architecture"> </a>
 </h3>
-<p>An easier but more time-consuming fix is to use a more sophisticated pretrained model. Let's see if using <code>resnet50</code> instead of <code>resnet18</code> helps us improve the prediction. This will consume more computing power and take longer but should help our prediction accuracy.</p>
+<p>An easier but more time-consuming fix is to use a more sophisticated pre-trained model. Let's see if using <code>resnet50</code> instead of <code>resnet18</code> helps us improve the prediction. This will consume more computing power and take longer but should help our prediction accuracy.</p>
 
 </div>
 </div>
@@ -1960,7 +1960,7 @@ Hit Rate: 90 %
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html" hidden></a>
+</script><a class="u-url" href="/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">

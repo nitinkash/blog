@@ -1,15 +1,218 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://nitinkash.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://nitinkash.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-05-23T07:31:48-05:00</updated><id>https://nitinkash.github.io/blog/feed.xml</id><title type="html">Nitin Kashyap</title><subtitle>My Data Science Blog</subtitle><entry><title type="html">Building a Handwritting digit Classifier using PyTorch and fastai</title><link href="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html" rel="alternate" type="text/html" title="Building a Handwritting digit Classifier using PyTorch and fastai" /><published>2021-05-22T00:00:00-05:00</published><updated>2021-05-22T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final</id><content type="html" xml:base="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/05/22/_04_18_MNIST_Nitin-final.html">&lt;!--
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://nitinkash.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://nitinkash.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-05-24T05:39:54-05:00</updated><id>https://nitinkash.github.io/blog/feed.xml</id><title type="html">Nitin Kashyap</title><subtitle>My Data Science Blog</subtitle><entry><title type="html">Recurrent Neural Networks</title><link href="https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html" rel="alternate" type="text/html" title="Recurrent Neural Networks" /><published>2021-05-19T00:00:00-05:00</published><updated>2021-05-19T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview</id><content type="html" xml:base="https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html">&lt;p&gt;A recurrent neural network (RNN) is a type of Neural Network that allows previous outputs to be used as inputs while using hidden states. It is called a Recurrent Network because it repeatedly takes an input, uses it to modify a hidden layer and then provides an output which is then fed back to the hidden layer along with the next input. The hidden layer acts as “memory” that keeps track of the previous inputs by how the weights in the layer were modified by the said input. Consider an example of a RNN working on predicting the next word in a sentence. The first word is passed into a hidden layer, the output of this hidden layer along with the next input is then passed on to the next hidden layer and this process continues till all the inputs are passed on to the final output layer which predicts the final word. In this way, the RNN has an “understanding” of each word in the network and can make a reasonable prediction of the final word.&lt;/p&gt;
+
+&lt;h1 id=&quot;todo-add-image-of-rnn-for-predicting-the-next-word-here&quot;&gt;TODO: Add image of RNN for predicting the next word here::&lt;/h1&gt;
+
+&lt;p&gt;The structure used here is a many-to-one type of RNN. Many other RNN architectures have been developed to accomplish other tasks like music generation, sentiment analysis and machine translation.&lt;/p&gt;</content><author><name></name></author><category term="Deep Learning" /><category term="NLP" /><summary type="html">A recurrent neural network (RNN) is a type of Neural Network that allows previous outputs to be used as inputs while using hidden states. It is called a Recurrent Network because it repeatedly takes an input, uses it to modify a hidden layer and then provides an output which is then fed back to the hidden layer along with the next input. The hidden layer acts as “memory” that keeps track of the previous inputs by how the weights in the layer were modified by the said input. Consider an example of a RNN working on predicting the next word in a sentence. The first word is passed into a hidden layer, the output of this hidden layer along with the next input is then passed on to the next hidden layer and this process continues till all the inputs are passed on to the final output layer which predicts the final word. In this way, the RNN has an “understanding” of each word in the network and can make a reasonable prediction of the final word.</summary></entry><entry><title type="html">Q01 Introduction</title><link href="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review.html" rel="alternate" type="text/html" title="Q01 Introduction" /><published>2021-04-20T00:00:00-05:00</published><updated>2021-04-20T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review</id><content type="html" xml:base="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review.html">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do you need these for deep learning?&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Lots of math T / F: &lt;strong&gt;False&lt;/strong&gt;, a lot of libraries have been created to take care of the complex math parts and allow us to focus on training models&lt;/li&gt;
+      &lt;li&gt;Lots of data T / F: &lt;strong&gt;False&lt;/strong&gt;, a lot of great results have been seen with small amounts of data&lt;/li&gt;
+      &lt;li&gt;Lots of expensive computers T / F: &lt;strong&gt;False&lt;/strong&gt;, there are a lot of free and cheap options available to create and deploy deep learning models&lt;/li&gt;
+      &lt;li&gt;A PhD T / F: &lt;strong&gt;False&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Name five areas where deep learning is now the best in the world.
+    &lt;ul&gt;
+      &lt;li&gt;Image Recognition&lt;/li&gt;
+      &lt;li&gt;Natural Language Processing&lt;/li&gt;
+      &lt;li&gt;Recommendation Systems&lt;/li&gt;
+      &lt;li&gt;Playing games like chess, Go etc.&lt;/li&gt;
+      &lt;li&gt;Image generation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What was the name of the first device that was based on the principle of the artificial neuron?
+    &lt;ul&gt;
+      &lt;li&gt;The Perceptron&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Based on the book of the same name, what are the requirements for parallel distributed processing (PDP)?
+    &lt;ul&gt;
+      &lt;li&gt;Processing Units&lt;/li&gt;
+      &lt;li&gt;State of Activation&lt;/li&gt;
+      &lt;li&gt;Output Function&lt;/li&gt;
+      &lt;li&gt;Pattern of connectivity&lt;/li&gt;
+      &lt;li&gt;Propagation Rule&lt;/li&gt;
+      &lt;li&gt;Activation Rule&lt;/li&gt;
+      &lt;li&gt;Learning rule&lt;/li&gt;
+      &lt;li&gt;Environment.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What were the two theoretical misunderstandings that held back the field of neural networks?
+    &lt;ul&gt;
+      &lt;li&gt;Cannot learn simple functions like XOR&lt;/li&gt;
+      &lt;li&gt;Require a lot of computational power and was very slow.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is a GPU?
+    &lt;ul&gt;
+      &lt;li&gt;Graphical Processing Unit. Specialized CPU working at a faster speed.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Why is it hard to use a traditional computer program to recognize images in a photo?
+    &lt;ul&gt;
+      &lt;li&gt;It is very complex to create a logic for reading in the pixels and performing a method of recognition, because we ourselves can’t write these steps down. These happen automatically in our brains without us being conscious about it.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What did Samuel mean by “weight assignment”?
+    &lt;ul&gt;
+      &lt;li&gt;By weight assignment, Arthur Samuel means to assign a particular set of values to the different variables(weights) involved in the program. The inputs and weights are the two different values involved in a program.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What term do we normally use in deep learning for what Samuel called “weights”?
+    &lt;ul&gt;
+      &lt;li&gt;They are also called parameters&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Draw a picture that summarizes Samuel’s view of a machine learning model.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;img src=&quot;/blog/images/ArthurSamuelModel.png&quot; alt=&quot;&quot; title=&quot;Arthur Samuel's Model&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Why is it hard to understand why a deep learning model makes a particular prediction?
+    &lt;ul&gt;
+      &lt;li&gt;The Deep learning models usually sift through enormous amounts of data to find data and patterns that may not be noticed by human experts. These patterns are usually difficult to isolate and make sense of in isolation and might by confusing to interpret.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is the name of the theorem that shows that a neural network can solve any mathematical problem to any level of accuracy?
+    &lt;ul&gt;
+      &lt;li&gt;Universal approximation theorem&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What do you need in order to train a model?
+    &lt;ul&gt;
+      &lt;li&gt;Data, a set of weights and&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How could a feedback loop impact the rollout of a predictive policing model?
+    &lt;ul&gt;
+      &lt;li&gt;This model will predict where more arrests will be made. If there is a bias in the data collection, the model will predict those areas where previous arrests had been high. After seeing these results, the police departments may assign more policemen to patrol areas which have a high probability of arrests which may cause even more arrests being made.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is the difference between classification and regression?
+    &lt;ul&gt;
+      &lt;li&gt;Classification involves predicting discrete classes which the elements belong into and regression involves predicting a continuous variable for a given set of independent variables.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is a validation set? What is a test set? Why do we need them?
+    &lt;ul&gt;
+      &lt;li&gt;While training a deep learning model, we usually train the model on a fraction of the training data and do not show the rest of the data to the model while training. The segment of data not shown to the model during training is called a validation set. It is used to measure the accuracy of the model. Another portion of the data is used to evaluate the performance of the model, this data is kept away from the model until all the hyper-parameters are tuned and modelling phases are completed. The evaluation on the final test set gives us a final assessment of our model.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What will fastai do if you don’t provide a validation set?
+    &lt;ul&gt;
+      &lt;li&gt;Automatically create a validation set with 20% of the training data.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Can we always use a random sample for a validation set? Why or why not?
+    &lt;ul&gt;
+      &lt;li&gt;No. Sometimes if we are dealing with time series data, using random samples for a validation set will cause misleading results.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is overfitting? Provide an example.
+    &lt;ul&gt;
+      &lt;li&gt;Training a model so that it remembers specific features of the input data, rather than generalizing well to data not seen during training&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is a metric? How does it differ from “loss”?
+    &lt;ul&gt;
+      &lt;li&gt;A metric is a measure by which we can assess hot the model is performing on the validation set. Loss is a measure of how good the model is. The metric is used for the users to understand the model while the loss is what the computer uses during the training phase to define what steps need to be taken.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How can pretrained models help?
+    &lt;ul&gt;
+      &lt;li&gt;Pretrained models can help in reducing the time taken for training and&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is the “head” of a model?
+    &lt;ul&gt;
+      &lt;li&gt;That specific part of the model added to be specific to a particular dataset is called the head of the model&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What kinds of features do the early layers of a CNN find? How about the later layers?
+    &lt;ul&gt;
+      &lt;li&gt;The early layers of the CNN identified vertical, diagonal and horizontal lines. Later layers identified repeating lines, circles and increasingly complex patterns.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Are image models only useful for photos?
+    &lt;ul&gt;
+      &lt;li&gt;No, sounds have been transformed to images based on their frequencies/loudness and then passed on to image models to identify the type of sound.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is an “architecture”?
+    &lt;ul&gt;
+      &lt;li&gt;Architecture refers to the template of the model that we’re trying to fit; i.e., the actual mathematical function that we’re passing the input data and parameters to&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is segmentation?
+    &lt;ul&gt;
+      &lt;li&gt;Creating a model that can identify distinct objects (vehicles, pedestrians etc.) in a picture is called segmentation.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y_range&lt;/code&gt; used for? When do we need it?
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y_range&lt;/code&gt; is a parameter that defines the range of values the prediction(target) can take.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What are “hyperparameters”?
+    &lt;ul&gt;
+      &lt;li&gt;Hyperparameters are basically parameters about parameters. They affect how fast and accurate the deep learning model performs&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What’s the best way to avoid failures when using AI in an organization?
+    &lt;ul&gt;
+      &lt;li&gt;Make sure the model is generalized, scalable and works on data not used to train the model. Another useful method is to use a simple model and compare the performance of the “expert” model with the simple baseline to get a sense of the accuracy of the model.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;</content><author><name></name></author><category term="markdown" /><category term="questionnaire" /><summary type="html">Introduction</summary></entry><entry><title type="html">Q02 Production</title><link href="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review-2.html" rel="alternate" type="text/html" title="Q02 Production" /><published>2021-04-20T00:00:00-05:00</published><updated>2021-04-20T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review-2</id><content type="html" xml:base="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review-2.html">&lt;h1 id=&quot;production&quot;&gt;Production:&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Provide an example of where the bear classification model might work poorly in production, due to structural or style differences in the training data.&lt;/li&gt;
+  &lt;li&gt;Where do text models currently have a major deficiency?&lt;/li&gt;
+  &lt;li&gt;What are possible negative societal implications of text generation models?&lt;/li&gt;
+  &lt;li&gt;In situations where a model might make mistakes, and those mistakes could be harmful, what is a good alternative to automating a process?&lt;/li&gt;
+  &lt;li&gt;What kind of tabular data is deep learning particularly good at?&lt;/li&gt;
+  &lt;li&gt;What’s a key downside of directly using a deep learning model for recommendation systems?&lt;/li&gt;
+  &lt;li&gt;What are the steps of the Drivetrain Approach?&lt;/li&gt;
+  &lt;li&gt;How do the steps of the Drivetrain Approach map to a recommendation system?&lt;/li&gt;
+  &lt;li&gt;Create an image recognition model using data you curate, and deploy it on the web.&lt;/li&gt;
+  &lt;li&gt;What is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataLoaders&lt;/code&gt;?&lt;/li&gt;
+  &lt;li&gt;What four things do we need to tell fastai to create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataLoaders&lt;/code&gt;?&lt;/li&gt;
+  &lt;li&gt;What does the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;splitter&lt;/code&gt; parameter to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataBlock&lt;/code&gt; do?&lt;/li&gt;
+  &lt;li&gt;How do we ensure a random split always gives the same validation set?&lt;/li&gt;
+  &lt;li&gt;What letters are often used to signify the independent and dependent variables?&lt;/li&gt;
+  &lt;li&gt;What’s the difference between the crop, pad, and squish resize approaches? When might you choose one over the others?&lt;/li&gt;
+  &lt;li&gt;What is data augmentation? Why is it needed?&lt;/li&gt;
+  &lt;li&gt;What is the difference between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;item_tfms&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;batch_tfms&lt;/code&gt;?&lt;/li&gt;
+  &lt;li&gt;What is a confusion matrix?&lt;/li&gt;
+  &lt;li&gt;What does &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;export&lt;/code&gt; save?&lt;/li&gt;
+  &lt;li&gt;What is it called when we use a model for getting predictions, instead of training?&lt;/li&gt;
+  &lt;li&gt;What are IPython widgets?&lt;/li&gt;
+  &lt;li&gt;When might you want to use CPU for deployment? When might GPU be better?&lt;/li&gt;
+  &lt;li&gt;What are the downsides of deploying your app to a server, instead of to a client (or edge) device such as a phone or PC?&lt;/li&gt;
+  &lt;li&gt;What are three examples of problems that could occur when rolling out a bear warning system in practice?&lt;/li&gt;
+  &lt;li&gt;What is “out-of-domain data”?&lt;/li&gt;
+  &lt;li&gt;What is “domain shift”?&lt;/li&gt;
+  &lt;li&gt;What are the three steps in the deployment process?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;</content><author><name></name></author><category term="markdown" /><category term="questionnaire" /><summary type="html">Production:</summary></entry><entry><title type="html">Building a Handwritten Digit Classifier</title><link href="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin.html" rel="alternate" type="text/html" title="Building a Handwritten Digit Classifier" /><published>2021-04-18T00:00:00-05:00</published><updated>2021-04-18T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin</id><content type="html" xml:base="https://nitinkash.github.io/blog/fastpages/jupyter/mnist/image%20classification/sgd/2021/04/18/MNIST-Nitin.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021_04_18_MNIST_Nitin-final.ipynb
+# file to edit: _notebooks/2021-04-18-MNIST-Nitin.ipynb
 --&gt;
 
 &lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
         
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;The-Objective:&quot;&gt;The Objective:&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Objective:&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In one of the &lt;a href=&quot;https://course.fast.ai/videos/?lesson=4&quot;&gt;lessons&lt;/a&gt; in the fastAi MOOC, we built a hand written digit classifier from scratch. We had used the MNIST dataset that contains 70,000 28x28 images of handwritten digits. In this post, I am attempting to expand on that and build a Handwritten digit recognizer to read in a 10 digit phone number with my sloppy handwriting usign the same MNIST dataset for training. I am seeing this as a sort of &quot;Hello World&quot; problem as I get into the topics covered in the first few parts of the course.&lt;/p&gt;
+&lt;h3 id=&quot;The-Objective:&quot;&gt;The Objective:&lt;a class=&quot;anchor-link&quot; href=&quot;#The-Objective:&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In one of the &lt;a href=&quot;https://course.fast.ai/videos/?lesson=4&quot;&gt;lessons&lt;/a&gt; in the fastAi MOOC, we built a hand written digit classifier from scratch. We had used the MNIST dataset that contains 70,000 28x28 images of handwritten digits. In this post, I am attempting to expand on that and build a Handwritten digit recognizer to read in a 10 digit phone number with my sloppy handwriting using the same MNIST dataset for training. I am seeing this as a sort of &quot;Hello World&quot; problem as I get into the topics covered in the first few parts of the course.&lt;/p&gt;
 &lt;p&gt;Lets start by importing the libraries we need:&lt;/p&gt;
 
 &lt;/div&gt;
@@ -36,7 +239,7 @@
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;I had some issues importing the libraries using Colab on Google Chrome. If you run into the same issues, you might need to explcitly specify the library as fastai-V2. See this &lt;a href=&quot;https://forums.fast.ai/t/modulenotfounderror-no-module-named-fastai-vision-all-on-kaggle-notebook/77008/13&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I had some issues importing the libraries using Colab on Google Chrome. If you run into the same issues, you might need to explicitly specify the library as fastai-V2. See this &lt;a href=&quot;https://forums.fast.ai/t/modulenotfounderror-no-module-named-fastai-vision-all-on-kaggle-notebook/77008/13&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -83,7 +286,7 @@
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Another nifty little thing fastai has provided is to access the working directory directly on jupyter books using &lt;code&gt;path.ls()&lt;/code&gt; This basically lets you run the &lt;code&gt;ls&lt;/code&gt; command in the Jupyter notebook itself and not have to switch back and forth with the terminal.&lt;/p&gt;
+&lt;p&gt;Another nifty little thing fastai has provided is to access the working directory directly on Jupyter books using &lt;code&gt;path.ls()&lt;/code&gt; This basically lets you run the &lt;code&gt;ls&lt;/code&gt; command in the Jupyter notebook itself and not have to switch back and forth with the terminal.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -196,7 +399,7 @@
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;As expected, there are separate folders for inages of each of the 10 digits. Usually, without having any pre-defined functions to read in the data, we would have to read in the files using something like&lt;/p&gt;
+&lt;p&gt;As expected, there are separate folders for images of each of the 10 digits. Usually, without having any pre-defined functions to read in the data, we would have to read in the files using something like&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;ones = (path/'training'/'1').ls().sorted()
 twos = (path/'training'/'2').ls().sorted()
@@ -208,7 +411,7 @@ sevens = (path/'training'/'7').ls().sorted()
 eights = (path/'training'/'8').ls().sorted()
 nines = (path/'training'/'9').ls().sorted()
 zeros = (path/'training'/'0').ls().sorted()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is cumbersome and might lead to some inadverent errors while writing the lines of code for each category. Fortunately, fastai also has an inbuilt ImageDataLoaders class that helps us easily import the required files and also automatically assign the labels.&lt;/p&gt;
+&lt;p&gt;This is cumbersome and might lead to some inadvertent errors while writing the lines of code for each category. Fortunately, fastai also has an inbuilt ImageDataLoaders class that helps us easily import the required files and also automatically assign the labels.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -997,7 +1200,7 @@ Hit Rate: 30 %
 &lt;ul&gt;
 &lt;li&gt;Improve the quality of the input images &lt;/li&gt;
 &lt;li&gt;Use the right learning rates using the learning rate finder &lt;code&gt;lr_find&lt;/code&gt; based on Leslie Smith's &lt;a href=&quot;https://arxiv.org/pdf/1803.09820.pdf&quot;&gt;paper&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Use a pretrained model and just change the weights of the last few layers&lt;/li&gt;
+&lt;li&gt;Use a pre-trained model and just change the weights of the last few layers&lt;/li&gt;
 &lt;li&gt;Use a Deeper Architecture with more layers.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1006,7 +1209,7 @@ Hit Rate: 30 %
 &lt;/div&gt;
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;Augmenting-the-Images&quot;&gt;Augmenting the Images&lt;a class=&quot;anchor-link&quot; href=&quot;#Augmenting-the-Images&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;One way of dealing with the problem of centering is to fix each of my test images so that the numbers are in the center of the image. The other easier approach is to train the model by augmenting the training images using &lt;code&gt;RandomResizedCrop&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Augmenting-the-Images&quot;&gt;Augmenting the Images&lt;a class=&quot;anchor-link&quot; href=&quot;#Augmenting-the-Images&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;One way of dealing with the problem of centring is to fix each of my test images so that the numbers are in the centre of the image. The other easier approach is to train the model by augmenting the training images using &lt;code&gt;RandomResizedCrop&lt;/code&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1035,7 +1238,7 @@ Hit Rate: 30 %
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Let's take a look at these images to make sure the code is working as expected. As we can see, some of these images are not at the center of the frame and this will help the model understand that the numbers don't need to be in the center of the frame to be classified as a particular number.&lt;/p&gt;
+&lt;p&gt;Let's take a look at these images to make sure the code is working as expected. As we can see, some of these images are not at the centre of the frame and this will help the model understand that the numbers don't need to be in the centre of the frame to be classified as a particular number.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1259,8 +1462,8 @@ Hit Rate: 10 %
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
 &lt;h3 id=&quot;Using-the-weights-from-a-pre-trained-model&quot;&gt;Using the weights from a pre-trained model&lt;a class=&quot;anchor-link&quot; href=&quot;#Using-the-weights-from-a-pre-trained-model&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Up until now we had used the &lt;code&gt;fit_one_cycle&lt;/code&gt; to train the model. This method trains the model by calculating the weights of every layer of the neural network for the defined number of epochs. However, we can make use the weights of an already trained model to avoid re-learning the information based on just our dataset. For example, if we already have a model trained on a lot of diverse set of images we might be better off using that rather than fitting a model based on just our digits dataset.&lt;/p&gt;
-&lt;p&gt;One of the cool things fastai, is that it allows us to do this seamlessly. To do this, we select an already trained model like &lt;code&gt;resnet18&lt;/code&gt; and use the in-built &lt;code&gt;freeze&lt;/code&gt; method to retains the weights of the pretrained model for all but the last layer. Then by randomizing the weights of the last layer and then train the model using our MNIST dataset for one epoch. This will help us avoid reinventing the wheel and converge faster to the right solution.&lt;/p&gt;
-&lt;h4 id=&quot;The-fine_tune-method&quot;&gt;The &lt;code&gt;fine_tune&lt;/code&gt; method&lt;a class=&quot;anchor-link&quot; href=&quot;#The-fine_tune-method&quot;&gt; &lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;code&gt;fine_tune&lt;/code&gt; basically solves this problem for us with just one line of code. So &lt;code&gt;fine_tune&lt;/code&gt; is a combination of &lt;code&gt;fit_one_cycle&lt;/code&gt; and &lt;code&gt;freeze&lt;/code&gt; using a discriminative learning rate that works quite well in most image datasets as we are leveraging on the pretrained model. After calling &lt;code&gt;unfreeze&lt;/code&gt; we use a lower learning rate to recalculate the weights of all the layers to avoid moving too far away from the current solution.&lt;/p&gt;
+&lt;p&gt;One of the cool things fastai, is that it allows us to do this seamlessly. To do this, we select an already trained model like &lt;code&gt;resnet18&lt;/code&gt; and use the in-built &lt;code&gt;freeze&lt;/code&gt; method to retains the weights of the pre-trained model for all but the last layer. Then by randomizing the weights of the last layer and then train the model using our MNIST dataset for one epoch. This will help us avoid reinventing the wheel and converge faster to the right solution.&lt;/p&gt;
+&lt;h4 id=&quot;The-fine_tune-method&quot;&gt;The &lt;code&gt;fine_tune&lt;/code&gt; method&lt;a class=&quot;anchor-link&quot; href=&quot;#The-fine_tune-method&quot;&gt; &lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;code&gt;fine_tune&lt;/code&gt; basically solves this problem for us with just one line of code. So &lt;code&gt;fine_tune&lt;/code&gt; is a combination of &lt;code&gt;fit_one_cycle&lt;/code&gt; and &lt;code&gt;freeze&lt;/code&gt; using a discriminative learning rate that works quite well in most image datasets as we are leveraging on the pre-trained model. After calling &lt;code&gt;unfreeze&lt;/code&gt; we use a lower learning rate to recalculate the weights of all the layers to avoid moving too far away from the current solution.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;def fine_tune(self:Learner, epochs, base_lr=2e-3, freeze_epochs=1, lr_mult=100,
               pct_start=0.3, div=5.0, **kwargs):
@@ -1502,14 +1705,14 @@ Hit Rate: 70 %
 
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Using the weights from the pretrained model really helped improve the predictions in a short period of training time. Seems like the model has an issue predicting the 7s and the 0 at the end. This is probably caused by the fact that I tend to add a dash to the 7s and most of the training set does not.&lt;/p&gt;
+&lt;p&gt;Using the weights from the pre-trained model really helped improve the predictions in a short period of training time. Seems like the model has an issue predicting the 7s and the 0 at the end. This is probably caused by the fact that I tend to add a dash to the 7s and most of the training set does not.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h3 id=&quot;Using-a-Deeper-Network-Architecture&quot;&gt;Using a Deeper Network Architecture&lt;a class=&quot;anchor-link&quot; href=&quot;#Using-a-Deeper-Network-Architecture&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;An easier but more time-consuming fix is to use a more sophisticated pretrained model. Let's see if using &lt;code&gt;resnet50&lt;/code&gt; instead of &lt;code&gt;resnet18&lt;/code&gt; helps us improve the prediction. This will consume more computing power and take longer but should help our prediction accuracy.&lt;/p&gt;
+&lt;h3 id=&quot;Using-a-Deeper-Network-Architecture&quot;&gt;Using a Deeper Network Architecture&lt;a class=&quot;anchor-link&quot; href=&quot;#Using-a-Deeper-Network-Architecture&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;An easier but more time-consuming fix is to use a more sophisticated pre-trained model. Let's see if using &lt;code&gt;resnet50&lt;/code&gt; instead of &lt;code&gt;resnet18&lt;/code&gt; helps us improve the prediction. This will consume more computing power and take longer but should help our prediction accuracy.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1750,210 +1953,7 @@ Hit Rate: 90 %
 
 &lt;script type=&quot;application/vnd.jupyter.widget-state+json&quot;&gt;
 {&quot;2fdeb21a3f614d0f856ea5b44ea0eaa3&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;model_name&quot;: &quot;HBoxModel&quot;, &quot;state&quot;: {&quot;_dom_classes&quot;: [], &quot;_model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_model_module_version&quot;: &quot;1.5.0&quot;, &quot;_model_name&quot;: &quot;HBoxModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_view_module_version&quot;: &quot;1.5.0&quot;, &quot;_view_name&quot;: &quot;HBoxView&quot;, &quot;box_style&quot;: &quot;&quot;, &quot;children&quot;: [&quot;IPY_MODEL_9285f634b86e4b308354cf185283bd4b&quot;, &quot;IPY_MODEL_70fef6d0cb4b4bf1911266121d1103cb&quot;], &quot;layout&quot;: &quot;IPY_MODEL_392b5b7ad1714f9fb2fce2d09bdc54e7&quot;}}, &quot;392b5b7ad1714f9fb2fce2d09bdc54e7&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;model_name&quot;: &quot;LayoutModel&quot;, &quot;state&quot;: {&quot;_model_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_model_module_version&quot;: &quot;1.2.0&quot;, &quot;_model_name&quot;: &quot;LayoutModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_view_module_version&quot;: &quot;1.2.0&quot;, &quot;_view_name&quot;: &quot;LayoutView&quot;, &quot;align_content&quot;: null, &quot;align_items&quot;: null, &quot;align_self&quot;: null, &quot;border&quot;: null, &quot;bottom&quot;: null, &quot;display&quot;: null, &quot;flex&quot;: null, &quot;flex_flow&quot;: null, &quot;grid_area&quot;: null, &quot;grid_auto_columns&quot;: null, &quot;grid_auto_flow&quot;: null, &quot;grid_auto_rows&quot;: null, &quot;grid_column&quot;: null, &quot;grid_gap&quot;: null, &quot;grid_row&quot;: null, &quot;grid_template_areas&quot;: null, &quot;grid_template_columns&quot;: null, &quot;grid_template_rows&quot;: null, &quot;height&quot;: null, &quot;justify_content&quot;: null, &quot;justify_items&quot;: null, &quot;left&quot;: null, &quot;margin&quot;: null, &quot;max_height&quot;: null, &quot;max_width&quot;: null, &quot;min_height&quot;: null, &quot;min_width&quot;: null, &quot;object_fit&quot;: null, &quot;object_position&quot;: null, &quot;order&quot;: null, &quot;overflow&quot;: null, &quot;overflow_x&quot;: null, &quot;overflow_y&quot;: null, &quot;padding&quot;: null, &quot;right&quot;: null, &quot;top&quot;: null, &quot;visibility&quot;: null, &quot;width&quot;: null}}, &quot;583a9f7ea08c4e85a49eb2a87a752cce&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;model_name&quot;: &quot;ProgressStyleModel&quot;, &quot;state&quot;: {&quot;_model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_model_module_version&quot;: &quot;1.5.0&quot;, &quot;_model_name&quot;: &quot;ProgressStyleModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_view_module_version&quot;: &quot;1.2.0&quot;, &quot;_view_name&quot;: &quot;StyleView&quot;, &quot;bar_color&quot;: null, &quot;description_width&quot;: &quot;initial&quot;}}, &quot;70fef6d0cb4b4bf1911266121d1103cb&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;model_name&quot;: &quot;HTMLModel&quot;, &quot;state&quot;: {&quot;_dom_classes&quot;: [], &quot;_model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_model_module_version&quot;: &quot;1.5.0&quot;, &quot;_model_name&quot;: &quot;HTMLModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_view_module_version&quot;: &quot;1.5.0&quot;, &quot;_view_name&quot;: &quot;HTMLView&quot;, &quot;description&quot;: &quot;&quot;, &quot;description_tooltip&quot;: null, &quot;layout&quot;: &quot;IPY_MODEL_9ee1e20a9a8b4211954314ab67550c00&quot;, &quot;placeholder&quot;: &quot;\u200b&quot;, &quot;style&quot;: &quot;IPY_MODEL_c643d10115d446ebb70bec6ee5c6c627&quot;, &quot;value&quot;: &quot; 44.7M/44.7M [00:00&amp;lt;00:00, 59.7MB/s]&quot;}}, &quot;836f0b70859845f892f00082792584d1&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;model_name&quot;: &quot;LayoutModel&quot;, &quot;state&quot;: {&quot;_model_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_model_module_version&quot;: &quot;1.2.0&quot;, &quot;_model_name&quot;: &quot;LayoutModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_view_module_version&quot;: &quot;1.2.0&quot;, &quot;_view_name&quot;: &quot;LayoutView&quot;, &quot;align_content&quot;: null, &quot;align_items&quot;: null, &quot;align_self&quot;: null, &quot;border&quot;: null, &quot;bottom&quot;: null, &quot;display&quot;: null, &quot;flex&quot;: null, &quot;flex_flow&quot;: null, &quot;grid_area&quot;: null, &quot;grid_auto_columns&quot;: null, &quot;grid_auto_flow&quot;: null, &quot;grid_auto_rows&quot;: null, &quot;grid_column&quot;: null, &quot;grid_gap&quot;: null, &quot;grid_row&quot;: null, &quot;grid_template_areas&quot;: null, &quot;grid_template_columns&quot;: null, &quot;grid_template_rows&quot;: null, &quot;height&quot;: null, &quot;justify_content&quot;: null, &quot;justify_items&quot;: null, &quot;left&quot;: null, &quot;margin&quot;: null, &quot;max_height&quot;: null, &quot;max_width&quot;: null, &quot;min_height&quot;: null, &quot;min_width&quot;: null, &quot;object_fit&quot;: null, &quot;object_position&quot;: null, &quot;order&quot;: null, &quot;overflow&quot;: null, &quot;overflow_x&quot;: null, &quot;overflow_y&quot;: null, &quot;padding&quot;: null, &quot;right&quot;: null, &quot;top&quot;: null, &quot;visibility&quot;: null, &quot;width&quot;: null}}, &quot;9285f634b86e4b308354cf185283bd4b&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;model_name&quot;: &quot;FloatProgressModel&quot;, &quot;state&quot;: {&quot;_dom_classes&quot;: [], &quot;_model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_model_module_version&quot;: &quot;1.5.0&quot;, &quot;_model_name&quot;: &quot;FloatProgressModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_view_module_version&quot;: &quot;1.5.0&quot;, &quot;_view_name&quot;: &quot;ProgressView&quot;, &quot;bar_style&quot;: &quot;success&quot;, &quot;description&quot;: &quot;100%&quot;, &quot;description_tooltip&quot;: null, &quot;layout&quot;: &quot;IPY_MODEL_836f0b70859845f892f00082792584d1&quot;, &quot;max&quot;: 46827520, &quot;min&quot;: 0, &quot;orientation&quot;: &quot;horizontal&quot;, &quot;style&quot;: &quot;IPY_MODEL_583a9f7ea08c4e85a49eb2a87a752cce&quot;, &quot;value&quot;: 46827520}}, &quot;9ee1e20a9a8b4211954314ab67550c00&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;model_name&quot;: &quot;LayoutModel&quot;, &quot;state&quot;: {&quot;_model_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_model_module_version&quot;: &quot;1.2.0&quot;, &quot;_model_name&quot;: &quot;LayoutModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_view_module_version&quot;: &quot;1.2.0&quot;, &quot;_view_name&quot;: &quot;LayoutView&quot;, &quot;align_content&quot;: null, &quot;align_items&quot;: null, &quot;align_self&quot;: null, &quot;border&quot;: null, &quot;bottom&quot;: null, &quot;display&quot;: null, &quot;flex&quot;: null, &quot;flex_flow&quot;: null, &quot;grid_area&quot;: null, &quot;grid_auto_columns&quot;: null, &quot;grid_auto_flow&quot;: null, &quot;grid_auto_rows&quot;: null, &quot;grid_column&quot;: null, &quot;grid_gap&quot;: null, &quot;grid_row&quot;: null, &quot;grid_template_areas&quot;: null, &quot;grid_template_columns&quot;: null, &quot;grid_template_rows&quot;: null, &quot;height&quot;: null, &quot;justify_content&quot;: null, &quot;justify_items&quot;: null, &quot;left&quot;: null, &quot;margin&quot;: null, &quot;max_height&quot;: null, &quot;max_width&quot;: null, &quot;min_height&quot;: null, &quot;min_width&quot;: null, &quot;object_fit&quot;: null, &quot;object_position&quot;: null, &quot;order&quot;: null, &quot;overflow&quot;: null, &quot;overflow_x&quot;: null, &quot;overflow_y&quot;: null, &quot;padding&quot;: null, &quot;right&quot;: null, &quot;top&quot;: null, &quot;visibility&quot;: null, &quot;width&quot;: null}}, &quot;c643d10115d446ebb70bec6ee5c6c627&quot;: {&quot;model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;model_name&quot;: &quot;DescriptionStyleModel&quot;, &quot;state&quot;: {&quot;_model_module&quot;: &quot;@jupyter-widgets/controls&quot;, &quot;_model_module_version&quot;: &quot;1.5.0&quot;, &quot;_model_name&quot;: &quot;DescriptionStyleModel&quot;, &quot;_view_count&quot;: null, &quot;_view_module&quot;: &quot;@jupyter-widgets/base&quot;, &quot;_view_module_version&quot;: &quot;1.2.0&quot;, &quot;_view_name&quot;: &quot;StyleView&quot;, &quot;description_width&quot;: &quot;&quot;}}}
-&lt;/script&gt;</content><author><name></name></author><category term="fastpages" /><category term="jupyter" /><category term="MNIST" /><category term="Image Classification" /><category term="SGD" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://nitinkash.github.io/blog/images/some_folder/your_image.png" /><media:content medium="image" url="https://nitinkash.github.io/blog/images/some_folder/your_image.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Recurrent Neural Networks</title><link href="https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html" rel="alternate" type="text/html" title="Recurrent Neural Networks" /><published>2021-05-19T00:00:00-05:00</published><updated>2021-05-19T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview</id><content type="html" xml:base="https://nitinkash.github.io/blog/deep%20learning/nlp/2021/05/19/RNN-Overview.html">&lt;p&gt;A recurrent neural network (RNN) is a type of Neural Network that allows previous outputs to be used as inputs while using hidden states. It is called a Recurrent Network because it repeatedly takes an input, uses it to modify a hidden layer and then provides an output which is then fed back to the hidden layer along with the next input. The hidden layer acts as “memory” that keeps track of the previous inputs by how the weights in the layer were modified by the said input. Consider an example of a RNN working on predicting the next word in a sentence. The first word is passed into a hidden layer, the output of this hidden layer along with the next input is then passed on to the next hidden layer and this process continues till all the inputs are passed on to the final output layer which predicts the final word. In this way, the RNN has an “understanding” of each word in the network and can make a reasonable prediction of the final word.&lt;/p&gt;
-
-&lt;h1 id=&quot;todo-add-image-of-rnn-for-predicting-the-next-word-here&quot;&gt;TODO: Add image of RNN for predicting the next word here::&lt;/h1&gt;
-
-&lt;p&gt;The structure used here is a many-to-one type of RNN. Many other RNN architectures have been developed to accomplish other tasks like music generation, sentiment analysis and machine translation.&lt;/p&gt;</content><author><name></name></author><category term="Deep Learning" /><category term="NLP" /><summary type="html">A recurrent neural network (RNN) is a type of Neural Network that allows previous outputs to be used as inputs while using hidden states. It is called a Recurrent Network because it repeatedly takes an input, uses it to modify a hidden layer and then provides an output which is then fed back to the hidden layer along with the next input. The hidden layer acts as “memory” that keeps track of the previous inputs by how the weights in the layer were modified by the said input. Consider an example of a RNN working on predicting the next word in a sentence. The first word is passed into a hidden layer, the output of this hidden layer along with the next input is then passed on to the next hidden layer and this process continues till all the inputs are passed on to the final output layer which predicts the final word. In this way, the RNN has an “understanding” of each word in the network and can make a reasonable prediction of the final word.</summary></entry><entry><title type="html">Q02 Production</title><link href="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review-2.html" rel="alternate" type="text/html" title="Q02 Production" /><published>2021-04-20T00:00:00-05:00</published><updated>2021-04-20T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review-2</id><content type="html" xml:base="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review-2.html">&lt;h1 id=&quot;production&quot;&gt;Production:&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Provide an example of where the bear classification model might work poorly in production, due to structural or style differences in the training data.&lt;/li&gt;
-  &lt;li&gt;Where do text models currently have a major deficiency?&lt;/li&gt;
-  &lt;li&gt;What are possible negative societal implications of text generation models?&lt;/li&gt;
-  &lt;li&gt;In situations where a model might make mistakes, and those mistakes could be harmful, what is a good alternative to automating a process?&lt;/li&gt;
-  &lt;li&gt;What kind of tabular data is deep learning particularly good at?&lt;/li&gt;
-  &lt;li&gt;What’s a key downside of directly using a deep learning model for recommendation systems?&lt;/li&gt;
-  &lt;li&gt;What are the steps of the Drivetrain Approach?&lt;/li&gt;
-  &lt;li&gt;How do the steps of the Drivetrain Approach map to a recommendation system?&lt;/li&gt;
-  &lt;li&gt;Create an image recognition model using data you curate, and deploy it on the web.&lt;/li&gt;
-  &lt;li&gt;What is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataLoaders&lt;/code&gt;?&lt;/li&gt;
-  &lt;li&gt;What four things do we need to tell fastai to create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataLoaders&lt;/code&gt;?&lt;/li&gt;
-  &lt;li&gt;What does the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;splitter&lt;/code&gt; parameter to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataBlock&lt;/code&gt; do?&lt;/li&gt;
-  &lt;li&gt;How do we ensure a random split always gives the same validation set?&lt;/li&gt;
-  &lt;li&gt;What letters are often used to signify the independent and dependent variables?&lt;/li&gt;
-  &lt;li&gt;What’s the difference between the crop, pad, and squish resize approaches? When might you choose one over the others?&lt;/li&gt;
-  &lt;li&gt;What is data augmentation? Why is it needed?&lt;/li&gt;
-  &lt;li&gt;What is the difference between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;item_tfms&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;batch_tfms&lt;/code&gt;?&lt;/li&gt;
-  &lt;li&gt;What is a confusion matrix?&lt;/li&gt;
-  &lt;li&gt;What does &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;export&lt;/code&gt; save?&lt;/li&gt;
-  &lt;li&gt;What is it called when we use a model for getting predictions, instead of training?&lt;/li&gt;
-  &lt;li&gt;What are IPython widgets?&lt;/li&gt;
-  &lt;li&gt;When might you want to use CPU for deployment? When might GPU be better?&lt;/li&gt;
-  &lt;li&gt;What are the downsides of deploying your app to a server, instead of to a client (or edge) device such as a phone or PC?&lt;/li&gt;
-  &lt;li&gt;What are three examples of problems that could occur when rolling out a bear warning system in practice?&lt;/li&gt;
-  &lt;li&gt;What is “out-of-domain data”?&lt;/li&gt;
-  &lt;li&gt;What is “domain shift”?&lt;/li&gt;
-  &lt;li&gt;What are the three steps in the deployment process?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;</content><author><name></name></author><category term="markdown" /><category term="questionnaire" /><summary type="html">Production:</summary></entry><entry><title type="html">Q01 Introduction</title><link href="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review.html" rel="alternate" type="text/html" title="Q01 Introduction" /><published>2021-04-20T00:00:00-05:00</published><updated>2021-04-20T00:00:00-05:00</updated><id>https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review</id><content type="html" xml:base="https://nitinkash.github.io/blog/markdown/questionnaire/2021/04/20/Jargon-Review.html">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do you need these for deep learning?&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Lots of math T / F: &lt;strong&gt;False&lt;/strong&gt;, a lot of libraries have been created to take care of the complex math parts and allow us to focus on training models&lt;/li&gt;
-      &lt;li&gt;Lots of data T / F: &lt;strong&gt;False&lt;/strong&gt;, a lot of great results have been seen with small amounts of data&lt;/li&gt;
-      &lt;li&gt;Lots of expensive computers T / F: &lt;strong&gt;False&lt;/strong&gt;, there are a lot of free and cheap options available to create and deploy deep learning models&lt;/li&gt;
-      &lt;li&gt;A PhD T / F: &lt;strong&gt;False&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Name five areas where deep learning is now the best in the world.
-    &lt;ul&gt;
-      &lt;li&gt;Image Recognition&lt;/li&gt;
-      &lt;li&gt;Natural Language Processing&lt;/li&gt;
-      &lt;li&gt;Recommendation Systems&lt;/li&gt;
-      &lt;li&gt;Playing games like chess, Go etc.&lt;/li&gt;
-      &lt;li&gt;Image generation&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What was the name of the first device that was based on the principle of the artificial neuron?
-    &lt;ul&gt;
-      &lt;li&gt;The Perceptron&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Based on the book of the same name, what are the requirements for parallel distributed processing (PDP)?
-    &lt;ul&gt;
-      &lt;li&gt;Processing Units&lt;/li&gt;
-      &lt;li&gt;State of Activation&lt;/li&gt;
-      &lt;li&gt;Output Function&lt;/li&gt;
-      &lt;li&gt;Pattern of connectivity&lt;/li&gt;
-      &lt;li&gt;Propagation Rule&lt;/li&gt;
-      &lt;li&gt;Activation Rule&lt;/li&gt;
-      &lt;li&gt;Learning rule&lt;/li&gt;
-      &lt;li&gt;Environment.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What were the two theoretical misunderstandings that held back the field of neural networks?
-    &lt;ul&gt;
-      &lt;li&gt;Cannot learn simple functions like XOR&lt;/li&gt;
-      &lt;li&gt;Require a lot of computational power and was very slow.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is a GPU?
-    &lt;ul&gt;
-      &lt;li&gt;Graphical Processing Unit. Specialized CPU working at a faster speed.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Why is it hard to use a traditional computer program to recognize images in a photo?
-    &lt;ul&gt;
-      &lt;li&gt;It is very complex to create a logic for reading in the pixels and performing a method of recognition, because we ourselves can’t write these steps down. These happen automatically in our brains without us being conscious about it.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What did Samuel mean by “weight assignment”?
-    &lt;ul&gt;
-      &lt;li&gt;By weight assignment, Arthur Samuel means to assign a particular set of values to the different variables(weights) involved in the program. The inputs and weights are the two different values involved in a program.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What term do we normally use in deep learning for what Samuel called “weights”?
-    &lt;ul&gt;
-      &lt;li&gt;They are also called parameters&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Draw a picture that summarizes Samuel’s view of a machine learning model.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;img src=&quot;/blog/images/ArthurSamuelModel.png&quot; alt=&quot;&quot; title=&quot;Arthur Samuel's Model&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Why is it hard to understand why a deep learning model makes a particular prediction?
-    &lt;ul&gt;
-      &lt;li&gt;The Deep learning models usually sift through enormous amounts of data to find data and patterns that may not be noticed by human experts. These patterns are usually difficult to isolate and make sense of in isolation and might by confusing to interpret.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is the name of the theorem that shows that a neural network can solve any mathematical problem to any level of accuracy?
-    &lt;ul&gt;
-      &lt;li&gt;Universal approximation theorem&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What do you need in order to train a model?
-    &lt;ul&gt;
-      &lt;li&gt;Data, a set of weights and&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;How could a feedback loop impact the rollout of a predictive policing model?
-    &lt;ul&gt;
-      &lt;li&gt;This model will predict where more arrests will be made. If there is a bias in the data collection, the model will predict those areas where previous arrests had been high. After seeing these results, the police departments may assign more policemen to patrol areas which have a high probability of arrests which may cause even more arrests being made.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is the difference between classification and regression?
-    &lt;ul&gt;
-      &lt;li&gt;Classification involves predicting discrete classes which the elements belong into and regression involves predicting a continuous variable for a given set of independent variables.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is a validation set? What is a test set? Why do we need them?
-    &lt;ul&gt;
-      &lt;li&gt;While training a deep learning model, we usually train the model on a fraction of the training data and do not show the rest of the data to the model while training. The segment of data not shown to the model during training is called a validation set. It is used to measure the accuracy of the model. Another portion of the data is used to evaluate the performance of the model, this data is kept away from the model until all the hyper-parameters are tuned and modelling phases are completed. The evaluation on the final test set gives us a final assessment of our model.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What will fastai do if you don’t provide a validation set?
-    &lt;ul&gt;
-      &lt;li&gt;Automatically create a validation set with 20% of the training data.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Can we always use a random sample for a validation set? Why or why not?
-    &lt;ul&gt;
-      &lt;li&gt;No. Sometimes if we are dealing with time series data, using random samples for a validation set will cause misleading results.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is overfitting? Provide an example.
-    &lt;ul&gt;
-      &lt;li&gt;Training a model so that it remembers specific features of the input data, rather than generalizing well to data not seen during training&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is a metric? How does it differ from “loss”?
-    &lt;ul&gt;
-      &lt;li&gt;A metric is a measure by which we can assess hot the model is performing on the validation set. Loss is a measure of how good the model is. The metric is used for the users to understand the model while the loss is what the computer uses during the training phase to define what steps need to be taken.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;How can pretrained models help?
-    &lt;ul&gt;
-      &lt;li&gt;Pretrained models can help in reducing the time taken for training and&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is the “head” of a model?
-    &lt;ul&gt;
-      &lt;li&gt;That specific part of the model added to be specific to a particular dataset is called the head of the model&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What kinds of features do the early layers of a CNN find? How about the later layers?
-    &lt;ul&gt;
-      &lt;li&gt;The early layers of the CNN identified vertical, diagonal and horizontal lines. Later layers identified repeating lines, circles and increasingly complex patterns.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Are image models only useful for photos?
-    &lt;ul&gt;
-      &lt;li&gt;No, sounds have been transformed to images based on their frequencies/loudness and then passed on to image models to identify the type of sound.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is an “architecture”?
-    &lt;ul&gt;
-      &lt;li&gt;Architecture refers to the template of the model that we’re trying to fit; i.e., the actual mathematical function that we’re passing the input data and parameters to&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is segmentation?
-    &lt;ul&gt;
-      &lt;li&gt;Creating a model that can identify distinct objects (vehicles, pedestrians etc.) in a picture is called segmentation.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y_range&lt;/code&gt; used for? When do we need it?
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y_range&lt;/code&gt; is a parameter that defines the range of values the prediction(target) can take.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What are “hyperparameters”?
-    &lt;ul&gt;
-      &lt;li&gt;Hyperparameters are basically parameters about parameters. They affect how fast and accurate the deep learning model performs&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What’s the best way to avoid failures when using AI in an organization?
-    &lt;ul&gt;
-      &lt;li&gt;Make sure the model is generalized, scalable and works on data not used to train the model. Another useful method is to use a simple model and compare the performance of the “expert” model with the simple baseline to get a sense of the accuracy of the model.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;</content><author><name></name></author><category term="markdown" /><category term="questionnaire" /><summary type="html">Introduction</summary></entry><entry><title type="html">Why?</title><link href="https://nitinkash.github.io/blog/general/2020/12/20/HowtoLearn.html" rel="alternate" type="text/html" title="Why?" /><published>2020-12-20T00:00:00-06:00</published><updated>2020-12-20T00:00:00-06:00</updated><id>https://nitinkash.github.io/blog/general/2020/12/20/HowtoLearn</id><content type="html" xml:base="https://nitinkash.github.io/blog/general/2020/12/20/HowtoLearn.html">&lt;p&gt;Why? Why start a blog now?&lt;/p&gt;
+&lt;/script&gt;</content><author><name></name></author><category term="fastpages" /><category term="jupyter" /><category term="MNIST" /><category term="Image Classification" /><category term="SGD" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://nitinkash.github.io/blog/images/some_folder/your_image.png" /><media:content medium="image" url="https://nitinkash.github.io/blog/images/some_folder/your_image.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Why?</title><link href="https://nitinkash.github.io/blog/general/2020/12/20/HowtoLearn.html" rel="alternate" type="text/html" title="Why?" /><published>2020-12-20T00:00:00-06:00</published><updated>2020-12-20T00:00:00-06:00</updated><id>https://nitinkash.github.io/blog/general/2020/12/20/HowtoLearn</id><content type="html" xml:base="https://nitinkash.github.io/blog/general/2020/12/20/HowtoLearn.html">&lt;p&gt;Why? Why start a blog now?&lt;/p&gt;
 
 &lt;p&gt;Right now it’s May 2021, I am in India while the whole country is battling the second wave of COVID-19 infections. Every day gets more depressing than the last, bringing news of new cases and deaths to someone I know. It’s a really depressing environment and being locked up at home makes it so much worse. Watching COVID-19 rip up families and destroy the livelihood of nearly every other person was incredibly painful to watch. As news unfolded of even crematoriums being so over-worked that their steel chimneys were started to melt I got a sense of how bad the damage was.&lt;/p&gt;
 
