@@ -94,7 +94,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      14 min read
+      15 min read
     
 </span></p>
 
@@ -523,6 +523,9 @@ zeros = (path/'training'/'0').ls().sorted()</code></pre>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -534,6 +537,7 @@ zeros = (path/'training'/'0').ls().sorted()</code></pre>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -556,6 +560,9 @@ zeros = (path/'training'/'0').ls().sorted()</code></pre>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -566,10 +573,8 @@ zeros = (path/'training'/'0').ls().sorted()</code></pre>
     </div>
 </div>
 </div>
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
-        <p>
-</p>
+
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -613,7 +618,6 @@ zeros = (path/'training'/'0').ls().sorted()</code></pre>
 </div>
 </div>
 
-    </details>
 </div>
     
 
@@ -623,7 +627,7 @@ zeros = (path/'training'/'0').ls().sorted()</code></pre>
 <h3 id="Building-the-model-using-fastai">
 <a class="anchor" href="#Building-the-model-using-fastai" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building the model using <code>fastai</code><a class="anchor-link" href="#Building-the-model-using-fastai"> </a>
 </h3>
-<p>The quick and dirty way of fitting a model to this data is to use <code>cnn_learner</code> to create a Convolutional Neural Network Learner and then call the <code>fit_one_cycle</code> method with the number of epochs and the learning rate.  <code>fastai</code> has made it possible to create a deep learning model using just two lines of code and give over 95% accuracy within a few minutes.</p>
+<p><code>fatsai</code> has provided a convenient way to train models using very few lines of code. Here we will use <code>cnn_learner</code> to create a Convolutional Neural Network Learner. Here we will be training an 18 layer neural network based on the <code>resnet18</code> architecture. <code>resnet18</code> is a pre-trained network that was trained to classify images into various object categories, ranging from a keyboard, mouse, and pencil, to many types of animals. Therefore, this network has learned some rich feature representations for a wide range of images. We will then call the <code>fit_one_cycle</code> method with the number of epochs and the learning rate to train this network with the images loaded in the <code>ImageDataLoaders</code>.</p>
 
 </div>
 </div>
@@ -684,7 +688,7 @@ zeros = (path/'training'/'0').ls().sorted()</code></pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>And then within a minute we have a model with over 95% accuracy on the validation set. Let's see how well it does on my handwriting.</p>
+<p>And within a minute we have a model with over 95% accuracy on the validation set! Let's see how well it does on my handwriting.</p>
 
 </div>
 </div>
