@@ -4,19 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Backpropagation from scratch | Nitin Kashyap</title>
+<title>Basic Concepts Overview | Nitin Kashyap</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Backpropagation from scratch" />
+<meta property="og:title" content="Basic Concepts Overview" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="My Data Science Blog" />
-<meta property="og:description" content="My Data Science Blog" />
-<link rel="canonical" href="https://nitinkash.github.io/blog/2021/06/11/_06_02_Concept_Review.html" />
-<meta property="og:url" content="https://nitinkash.github.io/blog/2021/06/11/_06_02_Concept_Review.html" />
+<meta name="description" content="Review of basic concepts in Neural Networks and Deep Learning from this site" />
+<meta property="og:description" content="Review of basic concepts in Neural Networks and Deep Learning from this site" />
+<link rel="canonical" href="https://nitinkash.github.io/blog/neural%20networks/backpropagation/sgd/wip/2021/06/11/_06_02_Concept_Review.html" />
+<meta property="og:url" content="https://nitinkash.github.io/blog/neural%20networks/backpropagation/sgd/wip/2021/06/11/_06_02_Concept_Review.html" />
 <meta property="og:site_name" content="Nitin Kashyap" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-06-11T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"My Data Science Blog","url":"https://nitinkash.github.io/blog/2021/06/11/_06_02_Concept_Review.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://nitinkash.github.io/blog/2021/06/11/_06_02_Concept_Review.html"},"headline":"Backpropagation from scratch","dateModified":"2021-06-11T00:00:00-05:00","datePublished":"2021-06-11T00:00:00-05:00","@context":"https://schema.org"}</script>
+{"description":"Review of basic concepts in Neural Networks and Deep Learning from this site","url":"https://nitinkash.github.io/blog/neural%20networks/backpropagation/sgd/wip/2021/06/11/_06_02_Concept_Review.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://nitinkash.github.io/blog/neural%20networks/backpropagation/sgd/wip/2021/06/11/_06_02_Concept_Review.html"},"headline":"Basic Concepts Overview","dateModified":"2021-06-11T00:00:00-05:00","datePublished":"2021-06-11T00:00:00-05:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nitinkash.github.io/blog/feed.xml" title="Nitin Kashyap" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
@@ -87,7 +87,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Backpropagation from scratch</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-06-11T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Basic Concepts Overview</h1><p class="page-description">Review of basic concepts in Neural Networks and Deep Learning from this <a href='http://neuralnetworksanddeeplearning.com/'>site</a></p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-06-11T00:00:00-05:00" itemprop="datePublished">
         Jun 11, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -97,6 +97,22 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#Neural Networks">Neural Networks</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#Backpropagation">Backpropagation</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#SGD">SGD</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#WIP">WIP</a>
+        
+      
+      </p>
     
 
     
@@ -124,7 +140,28 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Backpropagation-from-scratch">Backpropagation from scratch </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Notation:">Notation: </a></li>
+<li class="toc-entry toc-h2"><a href="#The-four-fundamental-equations-behind-Backpropagation:">The four fundamental equations behind Backpropagation: </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#The-First-Equation">The First Equation </a></li>
+<li class="toc-entry toc-h3"><a href="#The-Second-Equation:">The Second Equation: </a></li>
+<li class="toc-entry toc-h3"><a href="#The-Third-equation:">The Third equation: </a></li>
+<li class="toc-entry toc-h3"><a href="#The-Fourth-Equation:">The Fourth Equation: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Activation-Functions">Activation Functions </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#SoftMax">SoftMax </a></li>
+<li class="toc-entry toc-h3"><a href="#tanh">tanh </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#The-Backpropogartion-Algorithm">The Backpropogartion Algorithm </a></li>
+</ul>
+</li>
+</ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -133,43 +170,76 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://colab.research.google.com/github/nitinkash/blog/blob/master/_notebooks/2020_06_02_Concept_Review.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a></p>
+<p><a href="https://colab.research.google.com/github/nitinkash/blog/blob/master/_notebooks/2020_06_02_Concept_Review.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>While going through and trying to make a text generator using GANs I realised that my fundamentals in Neural Networks is quite weak an&gt; it had been nearly 4 yoers since I finished my Masters Degree and I had lost touch with a lot of key concepts of Neural NEtworks. While it is possible to do most of these things without knowing all the details. I would personally like to know what I am using so that I avoid potential pitfalls later. I also came across this post while reviewing the videos in Stanford's CS 211n Course. <a href="https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b">link</a>. So will be dopign some porblems from the course assignment and reviewing some key concepts here.</p>
+<p>While working on Kaggle Competetions, I realised that I had lost touch with the fundamentals of Neural Networks and though it was a good idea to go over these concepts again. While it is possible today to build models and make predictions without knowing all the details. Working with prediction models in a prefessional setting, I would personally like to know what I am doing so that I avoid potential pitfalls later.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Notation:">Notation:<a class="anchor-link" href="#Notation:"> </a></h3>
+<h1 id="Backpropagation-from-scratch">
+<a class="anchor" href="#Backpropagation-from-scratch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backpropagation from scratch<a class="anchor-link" href="#Backpropagation-from-scratch"> </a>
+</h1>
+<p>Backpropagation is a an algorithm introduced by <a href="http://en.wikipedia.org/wiki/David_Rumelhart">David Rumelhart</a>, <a href="http://www.cs.toronto.edu/~hinton/">Geoffrey Hinton</a>, and <a href="http://en.wikipedia.org/wiki/Ronald_J._Williams">Ronald Williams</a> in this famous <a href="http://www.nature.com/nature/journal/v323/n6088/pdf/323533a0.pdf">paper</a>. The algorithm works much faster than earlier approaches to calculate the gradients of the cost function and essentailly making neural networks solve problems that were previously considered unsolvable.</p>
+<p>The algorithm calculates the partial derivative of the Cost function with respect to each and every weight and bias in the neural network. This is very  valuable as this gives us an intuitive and natural interpretation for each element in the network. I will now be going into the math behind the Backpropogation.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-four-fundamental-equations-behind-Backpropagation:">The four fundamental equations behind Backpropagation:<a class="anchor-link" href="#The-four-fundamental-equations-behind-Backpropagation:"> </a></h2><p>Backpropgation is essentally a method to understand how changing the weights and biases in the neural network affects the cost function. Mathematically, we want to calculate $\frac{\partial C}{\partial w_{jk}^{l}}$ and $\frac{\partial C}{\partial b_{j}^{l}}$. Before we compute these we introduce an error term $ \delta_{j}^{l}$ which represents the error in the $j^{th}$ neuron of the $l^{th}$ layer.</p>
-<h3 id="The-First-Equation">The First Equation<a class="anchor-link" href="#The-First-Equation"> </a></h3><p>The error term is calculated using the equation $$ \delta_{j}^{l} = \frac{\partial C}{\partial a_{j}^{L}} \sigma'(z_{j}^{L})   $$</p>
+<h3 id="Notation:">
+<a class="anchor" href="#Notation:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notation:<a class="anchor-link" href="#Notation:"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-four-fundamental-equations-behind-Backpropagation:">
+<a class="anchor" href="#The-four-fundamental-equations-behind-Backpropagation:" aria-hidden="true"><span class="octicon octicon-link"></span></a>The four fundamental equations behind Backpropagation:<a class="anchor-link" href="#The-four-fundamental-equations-behind-Backpropagation:"> </a>
+</h2>
+<p>Backpropgation is essentally a method to understand how changing the weights and biases in the neural network affects the cost function. Mathematically, we want to calculate $\frac{\partial C}{\partial w_{jk}^{l}}$ and $\frac{\partial C}{\partial b_{j}^{l}}$. Before we compute these we introduce an error term $ \delta_{j}^{l}$ which represents the error in the $j^{th}$ neuron of the $l^{th}$ layer.</p>
+<h3 id="The-First-Equation">
+<a class="anchor" href="#The-First-Equation" aria-hidden="true"><span class="octicon octicon-link"></span></a>The First Equation<a class="anchor-link" href="#The-First-Equation"> </a>
+</h3>
+<p>The error term is calculated using the equation $$ \delta_{j}^{l} = \frac{\partial C}{\partial a_{j}^{L}} \sigma'(z_{j}^{L})   $$</p>
 <p>This equation is a very intuitive result. The $\partial C/ \partial {a_{j}^{L}}$ term measures how fast the Cost function is changing with respect to the activations of the $j^{th}$ output activation. If the Cost Function does not depend on the output of a particular neuron $j$, then the term $ \delta_{j}^{L} $ will be very small, which is as expected. The second term $ \sigma'(z_{j}^{L}) $ measures how fast the activation function $ \sigma$ is changing at $z_{j}^{L}$</p>
 <p>Everything in this equation of $\delta _{j}^{L}$ can be computed fairly easily. The exact form of $\partial C/ \partial {a_{j}^{L}}$ will depend on the nature of the cost function used. If we use a quadratic cost function of the form $ C =\frac{1}{2} \Sigma_{j} (y_{j} - a_{j}^{L}) $ then the value of $\partial C/ \partial {a_{j}^{L}} = (a_{j}^{L} - y_{j})$ which can be computed easily.</p>
 <p>To avoid the index nightmare we can alse represent this as in matrix notation as $$ \delta^L = \nabla_{a} C \odot \sigma'(z^L) $$. Here, $ \nabla_{a} C$ is basically a vector whose components are $\partial C/ \partial {a_{j}^{L}}$, the rate of change of $C$ with respect to the output activations. For a quadratic loss function $\nabla_a C =(a^L-y)$ so the previous equation reduces to $$ \delta^L = (a^L-y) \odot \sigma'(z^L). $$</p>
 <p>Every component in this equation has a vector form that can be calculated easily using Numpy which is the goal of this exercise.</p>
-<h3 id="The-Second-Equation:">The Second Equation:<a class="anchor-link" href="#The-Second-Equation:"> </a></h3><p>The second equation of importance is used to calculate the error term $\delta_l$ with the error in the next layer $\delta_{l+1}$</p>
+<h3 id="The-Second-Equation:">
+<a class="anchor" href="#The-Second-Equation:" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Second Equation:<a class="anchor-link" href="#The-Second-Equation:"> </a>
+</h3>
+<p>The second equation of importance is used to calculate the error term $\delta_l$ with the error in the next layer $\delta_{l+1}$</p>
 $$
 \delta^l = ((w^{l+1})^T \delta^{l+1}) \odot \sigma'(z^l)
 $$<p>where $w^{l+1} $ is the weight matrix for the $(l+1)^{th} $ layer. This equation seems complicated, but each element has a nice interpretation. Suppose we know the error $\delta_{l+1}$ at the $l+1^{th}$ layer. When we apply the transpose weight matrix, $(w_{l+1})^T$, we can think intuitively of this as moving the error backward through the network. This gives us a measure of the error at the output of the $l^{th}$ layer. We can then take the Hadamard product $\odot \sigma′(z^l)$ to calculate the the error $\delta_l$ in the weighted input to layer $l$.</p>
 <p>By combining the forst and second equations, we can compute the error $\delta_l$ for any layer in the network. We start by using the first equation to compute $\delta_L$ and then apply the second equation to compute $\delta_{l-1}$, $\delta_{l-2}$, and so on, all the way to the start of the network.</p>
-<h3 id="The-Third-equation:">The Third equation:<a class="anchor-link" href="#The-Third-equation:"> </a></h3><p>This equation is related to the rate of cahnge of the Cost function with respect to any bias term in the network. $$ \frac{\partial C}{\partial b^l_j} =
+<h3 id="The-Third-equation:">
+<a class="anchor" href="#The-Third-equation:" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Third equation:<a class="anchor-link" href="#The-Third-equation:"> </a>
+</h3>
+<p>This equation is related to the rate of cahnge of the Cost function with respect to any bias term in the network. $$ \frac{\partial C}{\partial b^l_j} =
   \delta^l_j $$</p>
 <p>This makes the calculation convenient as we already have methods to calculate the  $ \delta_{j}^{l} $ using the first two equations. We can represent this as shorthand by removing the indices after understanding that  $\delta$ is being evaluated at the same neuron as bias $b$.</p>
-<h3 id="The-Fourth-Equation:">The Fourth Equation:<a class="anchor-link" href="#The-Fourth-Equation:"> </a></h3><p>This equation fills in the missing piece by providing an expression to calculate the rate of change of the costfunction with respect to any weight in the network.</p>
+<h3 id="The-Fourth-Equation:">
+<a class="anchor" href="#The-Fourth-Equation:" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Fourth Equation:<a class="anchor-link" href="#The-Fourth-Equation:"> </a>
+</h3>
+<p>This equation fills in the missing piece by providing an expression to calculate the rate of change of the costfunction with respect to any weight in the network.</p>
 <p>$$ \frac{\partial C}{\partial w^l_{jk}} = a^{l-1}_k \delta^l_j $$</p>
 <p>This may seem complicated again but when we look at it in terms of a less index heavy representation we can see that it basically states that the rate of change of the Cost function because of the weights is the product of the activation of the neuron input with the error of the neuron output from the weight $w$. $$ \frac{\partial C}{\partial w} = a_{\rm in} \delta_{\rm out} $$</p>
 <p>A consequence of this equatioon is that the gradtent term $ \partial C / \partial w $ will be small if the activation $a_{in} \approx 0$. This means that low-activation neurons will learn slowly as it does not change much during Gradient descent.</p>
@@ -180,10 +250,17 @@ functions which have properties that are useful in our applications.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Activation-Functions">Activation Functions<a class="anchor-link" href="#Activation-Functions"> </a></h2><p>To overcome various issues with the Sigmoid activation function, other activation functions have been developed. I will go over some commonly used activation functions in this section:</p>
-<h3 id="SoftMax">SoftMax<a class="anchor-link" href="#SoftMax"> </a></h3><p>The softmax function is commonly used in multi-calss classification as this provides a framework to calculate probabilities of each target calss over all possible target classes. It is defined as $$ softmax(x_i) = \frac{e^{x_i}}{\Sigma_j e^{x_j}}$$</p>
+<h2 id="Activation-Functions">
+<a class="anchor" href="#Activation-Functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activation Functions<a class="anchor-link" href="#Activation-Functions"> </a>
+</h2>
+<p>To overcome various issues with the Sigmoid activation function, other activation functions have been developed. I will go over some commonly used activation functions in this section:</p>
+<h3 id="SoftMax">
+<a class="anchor" href="#SoftMax" aria-hidden="true"><span class="octicon octicon-link"></span></a>SoftMax<a class="anchor-link" href="#SoftMax"> </a>
+</h3>
+<p>The softmax function is commonly used in multi-calss classification as this provides a framework to calculate probabilities of each target calss over all possible target classes. It is defined as $$ softmax(x_i) = \frac{e^{x_i}}{\Sigma_j e^{x_j}}$$</p>
 <p>The main advantage of this activation function is that the output ranges from 0 to 1 and the sum of probabilities will also sum up to 1. The implementation in numpy is quite straightforward as shown below:</p>
 
 </div>
@@ -245,15 +322,22 @@ functions which have properties that are useful in our applications.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="tanh">tanh<a class="anchor-link" href="#tanh"> </a></h3>
+<h3 id="tanh">
+<a class="anchor" href="#tanh" aria-hidden="true"><span class="octicon octicon-link"></span></a>tanh<a class="anchor-link" href="#tanh"> </a>
+</h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Backpropogartion-Algorithm">The Backpropogartion Algorithm<a class="anchor-link" href="#The-Backpropogartion-Algorithm"> </a></h2><p>The backpropagation equations provide us with a way of computing the gradient of the cost function. Let's explicitly write this out in the form of an algorithm:</p>
+<h2 id="The-Backpropogartion-Algorithm">
+<a class="anchor" href="#The-Backpropogartion-Algorithm" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Backpropogartion Algorithm<a class="anchor-link" href="#The-Backpropogartion-Algorithm"> </a>
+</h2>
+<p>The backpropagation equations provide us with a way of computing the gradient of the cost function. Let's explicitly write this out in the form of an algorithm:</p>
 <ol>
 <li>Input $x$: Set the corresponding activation $a_1$ for the input layer.</li>
 <li>Feedforward: For each $l=1, 2 ,3 , … ,L$ compute $z^{l} = w^l a^{l-1}+b^l$ and $a^{l} = \sigma(z^{l})$</li>
@@ -306,7 +390,15 @@ functions which have properties that are useful in our applications.</p>
 
 
 
-  </div><a class="u-url" href="/blog/2021/06/11/_06_02_Concept_Review.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nitinkash/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/neural%20networks/backpropagation/sgd/wip/2021/06/11/_06_02_Concept_Review.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
