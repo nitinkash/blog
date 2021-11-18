@@ -4,7 +4,7 @@ layout: post
 categories: ["Ethereum", "Smart Contracts"]
 title: Towards becoming an Ethernaut
 description: "Covers my experience hacking Smart Contracts on Ethereum"  
-hide: true
+hide: false
 ---
 So I got into the ttech involved in Crypto recently and builst some toy application on Ethereum and Solana. I wanted to gtake a step back and learn about hacking smart contracts before moving further. I found this game on [Open Zepplin](https://openzeppelin.com/) called [Ethernauts](https://ethernaut.openzeppelin.com/). Couldn't find a lot of info for a noob like me to follow, so I thought I'd write about how I progress down this. I am not giving all the directions and am just trying to give you a sense of where I got stuck and what I did to get out.
 
