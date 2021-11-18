@@ -120,7 +120,32 @@ window.onload = wrap_img;
 
 <h3 id="level-1">Level 1</h3>
 
-<p>Now this was a quite confusing for me. I had to read quite a bit about the <a href="https://docs.soliditylang.org/en/v0.5.10/contracts.html#fallback-function">fallback function</a> methods and what they are used for. So a fallback function is basically created so that the contract can receive ETH directly without calling any of the other functions. This must be a <code class="language-plaintext highlighter-rouge">payable</code> and have <code class="language-plaintext highlighter-rouge">external</code> visibility. In this level, the fallback function is the last function. The idea I had was to just send the contract some ether and I would then be able to claim ownership as <code class="language-plaintext highlighter-rouge">owner = msg.sender</code> would be executed. Then I would run withdraw to pick up all that sweet ETH.</p>
+<p>Now this was a quite confusing for me. I had to read quite a bit about the <a href="https://docs.soliditylang.org/en/v0.5.10/contracts.html#fallback-function">fallback function</a> methods and what they are used for. So a fallback function is basically created so that the contract can receive ETH directly without calling any of the other functions. This must be a <code class="language-plaintext highlighter-rouge">payable</code> and have <code class="language-plaintext highlighter-rouge">external</code> visibility. A bad practice is including key logic elements within this function. This can give hackers a way into the smart contract. We can trigger a <code class="language-plaintext highlighter-rouge">fallback</code> function by</p>
+<ul>
+  <li>Calling a function that doesn’t exist inside the contract, or</li>
+  <li>Calling a function without passing in required data, or</li>
+  <li>Sending Ether without any data to the contract</li>
+</ul>
+
+<p>In this level, the fallback function is the last function. The idea I had was to just send the contract some ether and I would then be able to claim ownership as <code class="language-plaintext highlighter-rouge">owner = msg.sender</code> would be executed. Then I would run withdraw to pick up all that sweet ETH.
+` contract.contribute({from: player, value:toWei(“0.0001”)})</p>
+
+<p>contract.sendTransaction({
+    from: player,
+    value: toWei(“0.0009”)
+  })
+  // Check if you are the owner
+  await contract.owner();</p>
+
+<p>//Get out all the ETH
+  contract.withdraw()
+`</p>
+
+<h3 id="level-2">LEvel 2</h3>
+
+<p>This was an easier one after going through the previous example and getting the syntax of all those console correct. I was able to gain ownership by just calling the old constructor <code class="language-plaintext highlighter-rouge">Fal1out</code>.</p>
+
+<h3 id="level-3">Level 3</h3>
 
 
   </div><a class="u-url" href="/blog/ethereum/smart%20contracts/2021/11/17/Ethernauts.html" hidden></a>
